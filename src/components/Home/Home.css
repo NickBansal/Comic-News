@@ -59,6 +59,8 @@ television {
      background:linear-gradient(45deg, black, grey);
      border-radius: 48px;
      float: left;
+     overflow: auto;
+     /* padding: 20px; */
   }
   
   .television__channels-wrapper {

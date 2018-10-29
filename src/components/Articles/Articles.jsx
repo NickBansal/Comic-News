@@ -1,9 +1,20 @@
 import React from 'react'
+import './Articles.css'
 
-const Articles = () => {
+const Articles = ({ articles }) => {
+    
     return (
         <div>
-            <h1>Articles</h1>
+            {articles.map(article => {
+                return (
+                    <div className="Article" key={article._id}>
+                        <h1>{article.title}</h1>
+                        <p>{article.body.substr(0,100) + '...'}</p>
+                        <hr />
+                    </div>
+                    
+                )
+            })}
         </div>
     )
 }

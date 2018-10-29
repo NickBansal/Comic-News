@@ -1,10 +1,7 @@
 import React, { Component } from 'react';
 import Articles from '../Articles/Articles'
+import * as api from '../../api'
 import './Home.css'
-
-// const Home = ({ switchTelevision, open }) => {
-    
-// }
 
 class Home extends Component {
 
@@ -13,6 +10,7 @@ class Home extends Component {
     }
 
     render () {
+        console.log('Articles rendering...')
         let forwards = '>'
         let backwards = '<'
         let openText = this.props.switch ? 'OFF' : 'ON'
@@ -21,7 +19,7 @@ class Home extends Component {
             filter: 'blur(10px) grayscale(50%)',
             transition: '1s',
         }
-
+        
         const outStyle = {
             transition: '1s'
         }
@@ -40,7 +38,8 @@ class Home extends Component {
                     </div> 
                     <div className="television__center">
                         <div style={ this.props.switch ? teleOn : null } className="television__screen">
-                            { this.props.switch && <Articles /> }
+                            { this.props.switch && !this.props.chosenTopic && <h1>Please select a topic</h1>}
+                            { this.props.switch && this.props.chosenTopic && <Articles articles={this.state.articles }/> }
                         </div>
                         <div className="television__channels-wrapper">
                             <ul className="television__channels">
@@ -62,6 +61,20 @@ class Home extends Component {
                 </div>
         )
     }
+
+
+    componentDidUpdate(prevProps) {
+		console.log('Articles update....');
+		if (prevProps.chosenTopic !== this.props.chosenTopic) {
+            api.getArticleByTopic(this.props.chosenTopic)
+            .then(articles => {
+                this.setState({
+                    articles
+                })
+            })
+		}
+	}
+
 }
 
 export default Home; 

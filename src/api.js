@@ -5,3 +5,8 @@ export const getTopics = async () => {
     const { data } = await axios.get(`${DB_URL}/topics`)
     return data
 }
+
+export const getArticleByTopic = async (topic) => {
+    const { data } = await axios.get(`${DB_URL}/topics/${topic}/articles`)
+    return data
+}

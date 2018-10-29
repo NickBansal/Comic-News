@@ -33,7 +33,8 @@ class App extends Component {
         path='/' 
         switchTelevision={this.switchTelevision}
         open={this.state.open}
-        switch={this.state.switch} />
+        switch={this.state.switch}
+        chosenTopic={this.state.chosenTopic} />
       </Router>
       </div>
     );
