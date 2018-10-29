@@ -2,6 +2,8 @@ import React from 'react';
 import './Home.css'
 
 const Home = () => {
+    let forwards = '>>'
+    let backwards = '<<'
     return (
         <div>
             <div className="television">
@@ -14,16 +16,13 @@ const Home = () => {
                     <div className="television__screen">
                         
                     </div>
-                    {/* <div className="television__channels-wrapper">
+                    <div className="television__channels-wrapper">
                         <ul className="television__channels">
-                            <li className="television__channel"><a href="https://www.youtube.com/embed/SRu6YRr1KtM" title="Channel 1"></a></li>
-                            <li className="television__channel"><a href="https://www.youtube.com/embed/oRdxUFDoQe0" title="Channel 2"></a></li>
-                            <li className="television__channel"><a href="https://www.youtube.com/embed/EGikhmjTSZI" title="Channel 3"></a></li>
-                            <li className="television__channel"><a href="https://www.youtube.com/embed/06qJVpUSKZY" title="Channel 4"></a></li>
-                            <li className="television__channel"><a href="https://www.youtube.com/embed/v_09wFxoaeQ" title="Channel 5"></a></li>
-                            <li className="television__channel"><a href="https://www.youtube.com/embed/Tj75Arhq5ho" title="Channel 6"></a></li>
+                            <li className="television__channel">{backwards}</li>
+                            <li className="television__channel">{forwards}</li>
+                            
                         </ul>
-                    </div> */}
+                    </div>
                     </div>
                     <div className="television__base">
                         <div className="television__foot television__foot--left"></div>
