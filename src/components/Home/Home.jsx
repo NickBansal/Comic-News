@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import Articles from '../Articles/Articles'
 import './Home.css'
 
 // const Home = ({ switchTelevision, open }) => {
@@ -25,6 +26,10 @@ class Home extends Component {
             transition: '1s'
         }
 
+        const teleOn = {
+            background: '#eed5b6'
+        }
+
         return (
             <div>
                 <div style={this.props.open ? inStyle : outStyle} className="television">
@@ -34,8 +39,8 @@ class Home extends Component {
                         <div className="television__antenna__base"></div>
                     </div> 
                     <div className="television__center">
-                        <div className="television__screen">
-                            
+                        <div style={ this.props.switch ? teleOn : null } className="television__screen">
+                            { this.props.switch && <Articles /> }
                         </div>
                         <div className="television__channels-wrapper">
                             <ul className="television__channels">

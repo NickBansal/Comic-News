@@ -33,9 +33,7 @@ class App extends Component {
         path='/' 
         switchTelevision={this.switchTelevision}
         open={this.state.open}
-        switch={this.state.switch} >
-          {/* <Articles /> */}
-        </Home>
+        switch={this.state.switch} />
       </Router>
       </div>
     );
@@ -54,7 +52,7 @@ class App extends Component {
   }
 
   changeTopic = (event) => {
-    let chosenTopic = event
+    let chosenTopic = event.toLowerCase()
     this.setState({
       chosenTopic,
       open: false
