@@ -9,13 +9,14 @@ import './App.css';
 class App extends Component {
 
   state = {
+    switch: false,
     open: false,
     topics: [],
     chosenTopic: ''
   }
 
-
   render() {
+
     return (
       <div className="App">
       <Navbar 
@@ -28,7 +29,13 @@ class App extends Component {
       changeTopic={this.changeTopic}/>}
       
       <Router>
-        <Home path='/'/>
+        <Home 
+        path='/' 
+        switchTelevision={this.switchTelevision}
+        open={this.state.open}
+        switch={this.state.switch} >
+          {/* <Articles /> */}
+        </Home>
       </Router>
       </div>
     );
@@ -40,11 +47,17 @@ class App extends Component {
     })
   }
 
+  switchTelevision = () => {
+    this.setState({
+      switch: !this.state.switch
+    })
+  }
+
   changeTopic = (event) => {
     let chosenTopic = event
-    console.log(chosenTopic)
     this.setState({
-      chosenTopic
+      chosenTopic,
+      open: false
     })
   }
 
