@@ -62,24 +62,50 @@ television {
   }
   
   .television__channels-wrapper {
-     width: 70px;
+     width: 90px;
      height: 190px;
      background-color: #efd6b7;
      border-radius: 28px;
      float: right;
   }
+
+  .switch {
+    width: 90px;
+    height: 60px;
+    position: absolute;
+    bottom: 15px;
+    right: 15px;
+  }
+
+  .switch button {
+    height: 100%;
+    width: 100%;
+    border-radius: 20px;
+    font-size: 20px;
+    background: rgb(235, 199, 39);
+    border: 2px solid red;
+  }
+
+  .switch button:hover {
+    background: #efd6b7;
+  }
   
   .television__channels {
      padding: 0;
+     display: flex;
+     flex-direction: column;
+     align-items: center;
   }
   
   .television__channel {
      list-style-type: none;
-     background-color: #7f4b23;
-     width: 25px;
-     height: 25px;
+     background-color: rgb(235, 199, 39);
+     border: 5px solid #7f4b23;
+     width: 40px;
+     height: 40px;
      border-radius: 50%;
      margin: 5px;
+     font-size: 27px;
      float: left;
      position: relative;
   }

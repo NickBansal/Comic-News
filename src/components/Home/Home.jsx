@@ -2,8 +2,8 @@ import React from 'react';
 import './Home.css'
 
 const Home = () => {
-    let forwards = '>>'
-    let backwards = '<<'
+    let forwards = '>'
+    let backwards = '<'
     return (
         <div>
             <div className="television">
@@ -23,7 +23,11 @@ const Home = () => {
                             
                         </ul>
                     </div>
+                    <div className="switch">
+                    <button>SWITCH</button>
                     </div>
+                    </div>
+                    
                     <div className="television__base">
                         <div className="television__foot television__foot--left"></div>
                         <div className="television__foot television__foot--right"></div>
