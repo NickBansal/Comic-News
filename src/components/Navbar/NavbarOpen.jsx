@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from '@reach/router';
 import './NavbarOpen.css'
 
 const NavbarOpen = ({ topics, changeTopic }) => {
@@ -6,7 +7,9 @@ const NavbarOpen = ({ topics, changeTopic }) => {
         <div className="Menu">
             <ul>
                 {topics.map(item => {
-                    return <li onClick={() => changeTopic(item.title)} key={item._id}>{item.title}</li>
+                    return <Link key={item._id} to={`/topic/${item.slug}/articles`}>
+                    <li onClick={() => changeTopic(item.title)}>{item.title}</li>
+                    </Link>
                 })}
             </ul>
         </div>

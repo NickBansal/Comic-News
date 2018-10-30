@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import Articles from '../Articles/Articles'
 import SingleArticle from '../Articles/SingleArticle'
+import { Router } from '@reach/router'
 import * as api from '../../api'
 import './Home.css'
 
@@ -9,12 +10,11 @@ class Home extends Component {
     state = {
         articles: [],
         singleArticle: [],
-        showSingleArticles: false,
-        article_id: ''
+        article_id: '',
+        showSingleArticles: false
     }
 
     render () {
-        console.log(this.state.singleArticle.title !== undefined)
         let openText = this.props.switch ? 'OFF' : 'ON'
 
         const openTextStyle = {
@@ -45,16 +45,17 @@ class Home extends Component {
                         { this.props.switch && !this.props.chosenTopic && 
                         <h1>Please select a topic</h1>}
                         
-                        { !this.state.showSingleArticles && this.props.switch && this.props.chosenTopic && <Articles 
-                        changeSingleArticle={this.changeSingleArticle}
-                        articles={this.state.articles } /> }
+                        <Router>
+                            { this.props.switch && <Articles 
+                            changeSingleArticle={this.changeSingleArticle}
+                            articles={this.state.articles}
+                            path="/topic/:topic/articles"/> }
 
-                        { this.state.singleArticle.title !== undefined && this.state.showSingleArticles && this.props.switch && this.props.chosenTopic && <SingleArticle 
-                        singleArticle={this.state.singleArticle}
-                        chosenTopic={this.props.chosenTopic}
-                        changeSingleArticle={this.changeSingleArticleBackAgain}
-                        articles={this.state.articles } /> }
-
+                            {this.props.switch && this.state.showSingleArticles && <SingleArticle
+                            singleArticle={this.state.singleArticle} 
+                            path="/topic/:topic/articles/:article_id"
+                            /> }
+                        </Router>
 
                         </div>
                         <div className="television__channels-wrapper">
@@ -108,13 +109,6 @@ class Home extends Component {
             article_id
         })
     }
-
-    changeSingleArticleBackAgain = () => {
-        this.setState({
-            showSingleArticles: !this.state.showSingleArticles
-        })
-    }
-
 }
 
 export default Home; 
