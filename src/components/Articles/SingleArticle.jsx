@@ -10,19 +10,17 @@ class SingleArticle extends Component {
     }
 
     render() {    
-        const { title, body, created_at } = this.state.singleArticle
-
-        { this.state.loading && return <h1>Loading...</h1> } 
-
-        return (
+        const { title, body, created_at, created_by, belongs_to } = this.state.singleArticle
+        return this.state.loading ? <h1>Loading...</h1> :
+        (
             <div>
                 <h1>{ title }</h1>
                 <p>{ body }</p>
                 <div>
                     <h3>Created: { created_at }</h3>
-                    <h3>Author: Nick Bansal</h3>
+                    <h3>Author: { created_by.name }</h3>
                 </div>
-                <Link to={`/topic/${this.props.chosenTopic}/articles`}><h2 >BACK</h2></Link>
+                <Link to={`/topic/${belongs_to}/articles`}><h2 >BACK</h2></Link>
             </div> 
         )
     }
