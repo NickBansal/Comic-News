@@ -9,6 +9,7 @@ class Home extends Component {
 
     state = {
         articles: [],
+        loading: true
     }
 
     render () {
@@ -39,7 +40,8 @@ class Home extends Component {
                     <div className="television__center">
                         <div style={ this.props.switch ? teleOn : null } className="television__screen">
                         
-                        { this.props.switch && <Router>
+                        { this.props.switch && this.state.articles.length < 1 && <h1>Please select a Topic...</h1>}
+                        { this.props.switch && this.state.articles.length > 0 && <Router>
                             <Articles 
                             articles={this.state.articles}
                             path="/topic/:topic/articles"/> 

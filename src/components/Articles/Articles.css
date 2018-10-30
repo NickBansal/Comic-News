@@ -30,3 +30,17 @@ hr {
     background: green;
     margin: 0 auto;
 }
+
+.SingleArticle {
+    display: flex;
+    justify-content: space-around;
+}
+
+.SingleArticleBody h1 {
+    background: maroon;
+    height: 4rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 40px;
+}

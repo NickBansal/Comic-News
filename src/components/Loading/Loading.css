@@ -1,0 +1,11 @@
+.Loading {
+    background-image: url('../../images/staticScreen.png');
+    background-size: cover;
+    height: 100%;
+    width: 100%
+}
+
+.Loading h1 {
+    color: whitesmoke;
+    font-size: 145px;
+}

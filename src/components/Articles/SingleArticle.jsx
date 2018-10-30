@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import { Link } from '@reach/router'
 import * as api from '../../api'
 import Loading from '../Loading/Loading'
+import './Articles.css'
 
 class SingleArticle extends Component {
 
@@ -12,13 +13,14 @@ class SingleArticle extends Component {
 
     render() {    
         const { title, body, created_at, created_by, belongs_to } = this.state.singleArticle
+    
         return this.state.loading ? <Loading /> :
         (
-            <div>
+            <div className="SingleArticleBody">
                 <h1>{ title }</h1>
                 <p>{ body }</p>
-                <div>
-                    <h3>Created: { created_at }</h3>
+                <div className="SingleArticle">
+                    <h3>Created: { created_at.toString() }</h3>
                     <h3>Author: { created_by.name }</h3>
                 </div>
                 <Link to={`/topic/${belongs_to}/articles`}><h2 >BACK</h2></Link>
