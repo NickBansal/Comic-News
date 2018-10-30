@@ -14,7 +14,6 @@ class Home extends Component {
 
     render () {
         let openText = this.props.switch ? 'OFF' : 'ON'
-
         const openTextStyle = {
             fontFamily: '\'Patrick Hand\', cursive'
         }
@@ -41,13 +40,15 @@ class Home extends Component {
                         <div style={ this.props.switch ? teleOn : null } className="television__screen">
                         
                         { this.props.switch && this.state.articles.length < 1 && <h1>Please select a Topic...</h1>}
-                        { this.props.switch && this.state.articles.length > 0 && <Router>
+                        { this.props.switch && this.state.articles.length > 0 && 
+                        
+                        <Router>
                             <Articles 
                             articles={this.state.articles}
                             path="/topic/:topic/articles"/> 
 
                             <SingleArticle
-                            path="/articles/:article_id"/>
+                            path="/articles/:article_id/*" />
                         </Router> }
 
                         </div>
