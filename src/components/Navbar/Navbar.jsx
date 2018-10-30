@@ -5,6 +5,8 @@ const Navbar = ({ open, changeBurgerMenu }) => {
     return (
         <div className='Navbar'>
             <h1>ComicNews</h1>
+            <div className="TopicsChoice">
+                <h1>Topics >>></h1>
             <div 
             className={open ? "burger-menu open" : "burger-menu"}
             onClick={changeBurgerMenu}>
@@ -12,6 +14,8 @@ const Navbar = ({ open, changeBurgerMenu }) => {
                 <div className="bar2" key="b2" />
                 <div className="bar3" key="b3" />
             </div>
+            </div>
+            
         </div>
     )
 }

@@ -17,9 +17,7 @@
 .burger-menu.open {
   display: inline-block;
   cursor: pointer;
-  /* position: fixed; */
   right: 30px;
-  /* bottom: 40px; */
   z-index: 9999;
   background: #eef4c4;
   padding: 13px;
@@ -53,4 +51,14 @@
 .burger-menu.open .bar3 {
   -webkit-transform: rotate(45deg) translate(-6px, -6px);
   transform: rotate(45deg) translate(-6px, -6px);
+}
+
+.TopicsChoice {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.TopicsChoice h1 {
+  margin: 0
 }

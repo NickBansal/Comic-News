@@ -14,21 +14,24 @@ class SingleArticle extends Component {
 
     render() {    
         const { title, body, created_at, created_by, belongs_to, _id } = this.state.singleArticle
-    
+
         return this.state.loading ? <Loading /> :
         (
             <div>
                 <h1 className="SingleArticleTitle">{ title }</h1>
                 <p>{ body }</p>
                 <div className="SingleArticle">
-                    <h3>Created: { created_at.toString() }</h3>
+                    <h3>Created: { created_at }</h3>
                     <h3>Author: { created_by.name }</h3>
                 </div>
-                <Link to={`/topic/${belongs_to}/articles`}><h2 >BACK</h2></Link>
-                <Link to={`/articles/${_id}`}>-</Link>{'  |  '}
-                <Link to={`/articles/${_id}/comments`}>+</Link>
+                <div>
+                    <Link to={`/topic/${belongs_to}/articles`}><button className="BackButton">BACK</button></Link>
+                    <Link to={`/articles/${_id}`}>-</Link>{'  |  '}
+                    <Link to={`/articles/${_id}/comments`}>+</Link>
+                </div>
+                
                 <Router>
-                    <Comments path="comments"/>
+                    <Comments articleId={_id} path="comments"/>
                 </Router>
             </div> 
         )
