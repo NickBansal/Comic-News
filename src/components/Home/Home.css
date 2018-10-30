@@ -1,177 +1,179 @@
 television {
-    width: 650px;
-    margin: 0 auto;
-  }
-  
-  .television__top {
-    width: 300px;
-    margin: auto;
-    margin-top: 40px;
-    position: relative;
-  }
-  
-  .television__antenna {
-    width: 5px;
-    height: 100px;
-    background-color: #3b3733;
-    margin-bottom: -10px;
-  }
-  
-  .television__antenna--left {
-    transform: rotate(-30deg);
-    float: left;
-  }
-  
-  .television__antenna--right {
-    transform: rotate(30deg);
-    float: right;
-  }
-  
-  .television__antenna__base {
-    height: 30px;
-    background-color: #3b3733;
-    border-top-left-radius: 48px;
-    border-top-right-radius: 48px;
-    margin-bottom: 10px;
-    clear: both;
-    position: relative;
-    z-index: 2;
-  }
-  
-  .television__center {
-    position: relative;
-    z-index: 2;
-    width: 80%;
-    min-width: 750px;
-    height: 550px;
-    background-color: #7a4e27;
-    border: solid 3px #eef4c4;
-    box-shadow: -10px -10px #d64832;
-    border-radius: 48px;
-    margin: 0 auto;
-    padding: 10px 15px;
-  }
-  
-  .television__screen {
-    width: 83%;
-    min-width: 635px;
-    height: 545px;
-    background:linear-gradient(45deg, black, grey);
-    border-radius: 48px;
-    float: left;
-    overflow: auto
-  }
-  
-  .television__channels-wrapper {
-    width: 100px;
-    height: 350px;
-    background-color: #efd6b7;
-    border-radius: 28px;
-    float: right;
-  }
+  width: 650px;
+  margin: 0 auto;
+}
 
-  .television__channels h2 {
-    margin: 0
-  }
+.television__top {
+  width: 300px;
+  margin: auto;
+  margin-top: 40px;
+  position: relative;
+}
 
-  .switch {
-    width: 100px;
-    height: 60px;
-    position: absolute;
-    bottom: 15px;
-    right: 15px;
-  }
+.television__antenna {
+  width: 5px;
+  height: 100px;
+  background-color: #3b3733;
+  margin-bottom: -10px;
+}
 
-  .switch button {
-    height: 100%;
-    width: 100%;
-    border-radius: 28px;
-    font-size: 35px;
-    text-align: center;
-    background: rgb(235, 199, 39);
-    border: 5px solid red;
-  }
+.television__antenna--left {
+  transform: rotate(-30deg);
+  float: left;
+}
 
-  .switch button:hover {
-    background: rgb(238, 210, 84);
-    cursor: pointer;
-  }
+.television__antenna--right {
+  transform: rotate(30deg);
+  float: right;
+}
 
-  .switch button:active {
-    box-shadow: inset 4px 4px 10px #333;
-    background: #ecb976;
-    color: whitesmoke;
-  }
+.television__antenna__base {
+  height: 30px;
+  background-color: #3b3733;
+  border-top-left-radius: 48px;
+  border-top-right-radius: 48px;
+  margin-bottom: 10px;
+  clear: both;
+  position: relative;
+  z-index: 2;
+}
 
-  .switch button:focus {
-    outline: none
-  }
-  
-  .television__channels {
-    padding: 0;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-  }
-  
+.television__center {
+  position: relative;
+  z-index: 2;
+  width: 80%;
+  min-width: 750px;
+  height: 550px;
+  background-color: #7a4e27;
+  border: solid 3px #eef4c4;
+  box-shadow: -10px -10px #d64832;
+  border-radius: 48px;
+  margin: 0 auto;
+  padding: 10px 15px;
+}
 
-  .television__channel {
-    list-style-type: none;
-    background-color: rgb(235, 199, 39);
-    border: 5px solid #7f4b23;
-    width: 40px;
-    height: 40px;
-    border-radius: 50%;
-    margin: 5px;
-    font-size: 27px;
-    float: left;
-    position: relative;
-  }
-  
-  .television__channel:hover {
-    background-color: #e6a146;
-    cursor: pointer;
-  }
+.television__screen {
+  width: 83%;
+  min-width: 635px;
+  height: 545px;
+  background:linear-gradient(45deg, black, grey);
+  border-radius: 48px;
+  float: left;
+  overflow: auto
+}
 
-  .television__channel:active {
-    background-color: #ec724c;
-    box-shadow: inset 3px 3px 10px #333;
-    cursor: pointer;
-  }
-  
-  .television__channel a:active {
-    box-shadow: inset rgba(255,255,255,0.6) 0 2px 2px,
-                inset rgba(0,0,0,0.15) 0 -2px 5px, /* inner shadow */
-                    rgba(100,100,100,0.6) 0 2px 1px,
-                rgba(100,100,100,0.6) 0 2px 1px; /* color border */
-  }
-  
-  .television__base {
-    width: 300px;
-    margin: auto;
-  }
-  
-  .television__base:after {
-    clear: both;
-    content: "";
-    display: table;
-  }
-  
-  .television__foot {
-    width: 20px;
-    height: 70px;
-    margin-top: -20px;
-    background-color: #7d4d25;
-    border: solid 3px #eed5b6;
-    border-radius: 48px;
-  }
-  
-  .television__foot--left {
-    transform: rotate(30deg);
-    float: left;
-  }
-  
-  .television__foot--right {
-    transform: rotate(-30deg);
-    float: right;
-  }
+.television__channels-wrapper {
+  width: 100px;
+  height: 350px;
+  background-color: #efd6b7;
+  border-radius: 28px;
+  float: right;
+}
+
+.television__channels h2 {
+  margin: 0
+}
+
+.switch {
+  width: 100px;
+  height: 60px;
+  position: absolute;
+  bottom: 15px;
+  right: 15px;
+}
+
+.switch button {
+  height: 100%;
+  width: 100%;
+  border-radius: 28px;
+  font-size: 35px;
+  text-align: center;
+  background: rgb(235, 199, 39);
+  border: 5px solid red;
+}
+
+.switch button:hover {
+  background: rgb(238, 210, 84);
+  cursor: pointer;
+}
+
+.switch button:active {
+  box-shadow: inset 4px 4px 10px #333;
+  background: #ecb976;
+  color: whitesmoke;
+}
+
+.switch button:focus {
+  outline: none
+}
+
+.television__channels {
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+
+.television__channel {
+  list-style-type: none;
+  background-color: rgb(235, 199, 39);
+  border: 5px solid #7f4b23;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  margin: 5px;
+  font-size: 27px;
+  float: left;
+  position: relative;
+}
+
+.television__channel:hover {
+  background-color: #e6a146;
+  cursor: pointer;
+}
+
+.television__channel:active {
+  background-color: #ec724c;
+  box-shadow: inset 3px 3px 10px #333;
+  cursor: pointer;
+}
+
+.television__channel a:active {
+  box-shadow: inset rgba(255,255,255,0.6) 0 2px 2px,
+              inset rgba(0,0,0,0.15) 0 -2px 5px, /* inner shadow */
+                  rgba(100,100,100,0.6) 0 2px 1px,
+              rgba(100,100,100,0.6) 0 2px 1px; /* color border */
+}
+
+.television__base {
+  width: 300px;
+  margin: auto;
+}
+
+.television__base:after {
+  clear: both;
+  content: "";
+  display: table;
+}
+
+.television__foot {
+  width: 20px;
+  height: 70px;
+  margin-top: -20px;
+  background-color: #7d4d25;
+  border: solid 3px #eed5b6;
+  border-radius: 48px;
+}
+
+.television__foot--left {
+  transform: rotate(30deg);
+  float: left;
+}
+
+.television__foot--right {
+  transform: rotate(-30deg);
+  float: right;
+}
+
+

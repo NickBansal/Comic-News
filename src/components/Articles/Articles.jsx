@@ -1,13 +1,17 @@
 import React from 'react'
+// import { Link } from '@reach/router'
 import './Articles.css'
 
-const Articles = ({ articles }) => {
+const Articles = ({ articles, changeSingleArticle }) => {
     
     return (
         <div>
             {articles.map(article => {
                 return (
-                    <div className="Article" key={article._id}>
+                    <div 
+                    onClick={(event) => changeSingleArticle(article._id)} 
+                    className="Article" 
+                    key={article._id}>
                         <h1>{article.title}</h1>
                         <p>{article.body.substr(0,100) + '...'}</p>
                         <div className="articleStats">
@@ -16,7 +20,6 @@ const Articles = ({ articles }) => {
                         </div>
                         <hr />
                     </div>
-                    
                 )
             })}
         </div>

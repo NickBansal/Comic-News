@@ -31,3 +31,9 @@
     color: #7a4e27;
    cursor: pointer;
 }
+
+@media (max-width: 810px) {
+    .Menu {
+        width: 100%;
+    }
+}
