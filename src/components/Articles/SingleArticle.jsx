@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import { Link } from '@reach/router'
 import * as api from '../../api'
+import Loading from '../Loading/Loading'
 
 class SingleArticle extends Component {
 
@@ -11,7 +12,7 @@ class SingleArticle extends Component {
 
     render() {    
         const { title, body, created_at, created_by, belongs_to } = this.state.singleArticle
-        return this.state.loading ? <h1>Loading...</h1> :
+        return this.state.loading ? <Loading /> :
         (
             <div>
                 <h1>{ title }</h1>
