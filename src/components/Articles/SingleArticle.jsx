@@ -1,43 +1,78 @@
 import React, { Component } from 'react'
+import { Link } from '@reach/router'
+import * as api from '../../api'
 
 class SingleArticle extends Component {
 
     state = {
-        comments: []
+        singleArticle: {},
+        loading: true
     }
 
-    render() {
-        const { title, body } = this.props.singleArticle
+    render() {    
+        const { title, body, created_at } = this.state.singleArticle
+
+        { this.state.loading && return <h1>Loading...</h1> } 
+
         return (
             <div>
-                <h1>{title}</h1>
-                <p>{body}</p>
-                <button>BACK</button>
+                <h1>{ title }</h1>
+                <p>{ body }</p>
+                <div>
+                    <h3>Created: { created_at }</h3>
+                    <h3>Author: Nick Bansal</h3>
+                </div>
+                <Link to={`/topic/${this.props.chosenTopic}/articles`}><h2 >BACK</h2></Link>
             </div> 
         )
     }
+
+    componentDidMount () {
+        api.getArticleById(this.props.article_id)
+        .then(singleArticle => {
+            this.setState({
+                singleArticle,
+                loading: false
+            })
+        })
+    }
+
 }
 
+export default SingleArticle
 
 
+// article_id:
+// "5bd6d45cc22c6502cf177f35"
+// location:
+// {…}
+// navigate:
+// navigate()
+// path:
+// "/articles/:article_id"
+// uri:
+// "/articles/5bd6d45cc22c6502cf177f35"
+// State
+// singleArticle:
+// {…}
 // __v:
-//      0
+// 0
 // _id:
-//      "5bd6d45cc22c6502cf177f36"
+// "5bd6d45cc22c6502cf177f35"
 // belongs_to:
-//      "coding"
+// "coding"
 // body:
-//      "Many people know Watson as the IBM-developed cognitive super computer that won the Jeopardy! gameshow in 2011. In truth, Watson is not actually a computer but a set of algorithms and APIs, and since w…"
+// "This is part two of a series on how to get up and running with Systemd and Node.js. This part dives deeper into how to successfully run your app with systemd long-term, and how to set it up in a produ…"
 // comment_count:
-//      0
+// 54
 // created_at:
-//      "2017-07-20T20:57:53.256Z"
+// "2016-08-18T12:07:52.389Z"
 // created_by:
-//      {…}
+// {…}
 // __v:
-//      0
+// 0
 // _id:
-//      "5bd6d45cc22c6502cf177f34"
+// "5bd6d45cc22c6502cf177f34"
 // avatar_url:
 // "https://s-media-cache-ak0.pinimg.com/564x/39/62/ec/3962eca164e60cf46f979c1f57d4078b.jpg"
 // name:
@@ -45,8 +80,6 @@ class SingleArticle extends Component {
 // username:
 // "jessjelly"
 // title:
-// "The Rise Of Thinking Machines: How IBM's Watson Takes On The World"
+// "Running a Node App"
 // votes:
 // 0
-
-export default SingleArticle

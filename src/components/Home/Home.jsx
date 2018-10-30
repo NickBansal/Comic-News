@@ -9,9 +9,6 @@ class Home extends Component {
 
     state = {
         articles: [],
-        singleArticle: [],
-        article_id: '',
-        showSingleArticles: false
     }
 
     render () {
@@ -42,20 +39,14 @@ class Home extends Component {
                     <div className="television__center">
                         <div style={ this.props.switch ? teleOn : null } className="television__screen">
                         
-                        { this.props.switch && !this.props.chosenTopic && 
-                        <h1>Please select a topic</h1>}
-                        
-                        <Router>
-                            { this.props.switch && <Articles 
-                            changeSingleArticle={this.changeSingleArticle}
+                        { this.props.switch && <Router>
+                            <Articles 
                             articles={this.state.articles}
-                            path="/topic/:topic/articles"/> }
+                            path="/topic/:topic/articles"/> 
 
-                            {this.props.switch && this.state.showSingleArticles && <SingleArticle
-                            singleArticle={this.state.singleArticle} 
-                            path="/topic/:topic/articles/:article_id"
-                            /> }
-                        </Router>
+                            <SingleArticle
+                            path="/articles/:article_id"/>
+                        </Router> }
 
                         </div>
                         <div className="television__channels-wrapper">
@@ -83,8 +74,7 @@ class Home extends Component {
     }
 
 
-    componentDidUpdate(prevProps, prevState) {
-		console.log('Articles update....');
+    componentDidUpdate(prevProps) {
 		if (prevProps.chosenTopic !== this.props.chosenTopic) {
             api.getArticleByTopic(this.props.chosenTopic)
             .then(articles => {
@@ -93,21 +83,6 @@ class Home extends Component {
                 })
             })
         }
-        if (prevState.showSingleArticles !== this.state.showSingleArticles) {
-            api.getArticleById(this.state.article_id)
-            .then(singleArticle => {
-                this.setState({
-                    singleArticle
-                })
-            })
-        }
-    }
-
-    changeSingleArticle = (article_id) => {
-        this.setState({
-            showSingleArticles: !this.state.showSingleArticles,
-            article_id
-        })
     }
 }
 
