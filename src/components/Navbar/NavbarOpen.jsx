@@ -5,7 +5,7 @@ const NavbarOpen = ({ topics, changeTopic }) => {
     return (
         <div className="Menu">
             <ul>
-                {topics.sort().map(item => {
+                {topics.map(item => {
                     return <li onClick={() => changeTopic(item.title)} key={item._id}>{item.title}</li>
                 })}
             </ul>

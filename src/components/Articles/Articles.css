@@ -7,6 +7,11 @@ p {
     margin-bottom: 25px;
 }
 
+.articleStats {
+    display: flex;
+    justify-content: space-around;
+}
+
 hr {
     width: 70%;
     height: 0.2rem;

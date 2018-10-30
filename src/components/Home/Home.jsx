@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import Articles from '../Articles/Articles'
+import { Router } from '@reach/router'
 import * as api from '../../api'
 import './Home.css'
 
@@ -10,20 +11,18 @@ class Home extends Component {
     }
 
     render () {
-        console.log('Articles rendering...')
-        let forwards = '>'
-        let backwards = '<'
         let openText = this.props.switch ? 'OFF' : 'ON'
-        
+
+        const openTextStyle = {
+            fontFamily: '\'Patrick Hand\', cursive'
+        }
         const inStyle = {
-            filter: 'blur(10px) grayscale(50%)',
+            filter: 'blur(10px) grayscale(70%)',
             transition: '1s',
         }
-        
         const outStyle = {
             transition: '1s'
         }
-
         const teleOn = {
             background: '#eed5b6'
         }
@@ -38,18 +37,24 @@ class Home extends Component {
                     </div> 
                     <div className="television__center">
                         <div style={ this.props.switch ? teleOn : null } className="television__screen">
-                            { this.props.switch && !this.props.chosenTopic && <h1>Please select a topic</h1>}
+                        <Router>
+                        { this.props.switch && !this.props.chosenTopic && <h1>Please select a topic</h1>}
                             { this.props.switch && this.props.chosenTopic && <Articles articles={this.state.articles }/> }
+                        </Router>
+                            
                         </div>
                         <div className="television__channels-wrapper">
                             <ul className="television__channels">
-                                <li className="television__channel">{backwards}</li>
-                                <li className="television__channel">{forwards}</li>
-                                
+                                <li className="television__channel votes"></li>
+                                <h2>Votes</h2>
+                                <li className="television__channel created"></li>
+                                <h2>Created</h2>
+                                <li className="television__channel comments"></li>
+                                <h2>Most Comments</h2>
                             </ul>
                         </div>
                         <div className="switch">
-                        <button onClick={this.props.switchTelevision}>{openText}</button>
+                        <button style={openTextStyle} onClick={this.props.switchTelevision}>{openText}</button>
                         </div>
                         </div>
                         
@@ -73,8 +78,7 @@ class Home extends Component {
                 })
             })
 		}
-	}
-
+    }
 }
 
 export default Home; 

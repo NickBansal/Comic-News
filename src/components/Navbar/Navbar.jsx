@@ -4,7 +4,7 @@ import './Navbar.css'
 const Navbar = ({ open, changeBurgerMenu }) => {
     return (
         <div className='Navbar'>
-            <h1>NAVBAR LOGO</h1>
+            <h1>ComicNews</h1>
             <div 
             className={open ? "burger-menu open" : "burger-menu"}
             onClick={changeBurgerMenu}>
