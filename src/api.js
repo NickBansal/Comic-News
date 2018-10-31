@@ -20,3 +20,9 @@ export const getCommentsByArticle = async (article_id) => {
     const { data } = await axios.get(`${DB_URL}/articles/${article_id}/comments`)
     return data
 }
+
+export const getUserByUsername = async (username) => {
+    console.log(username, " <<<<<<< API USERNAME")
+    const { data } = await axios.get(`${DB_URL}/users/${username}`)
+    return data
+}

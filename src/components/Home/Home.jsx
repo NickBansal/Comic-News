@@ -40,9 +40,10 @@ class Home extends Component {
                     <div className="television__center">
                         <div style={ this.props.switch ? teleOn : null } className="television__screen">
                         
+
                         { this.props.switch && this.state.articles.length < 1 && 
                         <div>
-                            <h1>Please Login or select a Topic...</h1> 
+                            <h1>Please Login OR select a Topic...</h1> 
                             <Router>
                                 <Login path="/login"/>
                             </Router>
