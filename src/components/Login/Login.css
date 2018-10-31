@@ -42,3 +42,19 @@ input:focus {
     transform: translateY(5px);
     box-shadow: 1px 1px 1px black
 }
+
+.LoggedIn {
+    display: flex;
+    border: 10px solid black;
+    border-radius: 40px;
+    width: 80%;
+    margin: 10% auto; 
+    background: gold;
+    align-items: flex-start
+}
+
+.LoggedIn img {
+    border-top-left-radius: 30px;
+    border-bottom-left-radius: 30px;
+    border-right: 5px solid black
+}

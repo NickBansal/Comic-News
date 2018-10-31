@@ -43,7 +43,6 @@ class Home extends Component {
 
                         { this.props.switch && this.state.articles.length < 1 && 
                         <div>
-                            <h1>Please Login OR select a Topic...</h1> 
                             <Router>
                                 <Login path="/login"/>
                             </Router>

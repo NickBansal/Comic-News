@@ -11,14 +11,31 @@ class Login extends Component {
     }
 
     render() {
-        return (
-            <form onSubmit={this.handleSubmit}>
-                <input 
-                onChange={(e) => this.handleChange(e.target.value)}
-                placeholder="Login..." type="text" name="username" />
-                <button className="InputButton">Login</button>
-            </form>
-        )
+        if (!this.state.user.username) {
+            return (
+                <div>
+                    <h1>Please login...</h1>
+                    <form onSubmit={this.handleSubmit}>
+                        <input 
+                        onChange={(e) => this.handleChange(e.target.value)}
+                        placeholder="Login..." type="text" name="username" />
+                        <button className="InputButton">Login</button>
+                    </form>
+                </div>
+            )
+        } else {
+            return (
+                <div className="LoggedIn">
+                    <img 
+                    src={ this.state.user.avatar_url } 
+                    alt={ this.state.user.username }/>
+                    <div className="LoggedInData">
+                        <h1>Hello { this.state.user.name }</h1>
+                        <h1>You are logged in as { this.state.user.username }</h1>
+                    </div>
+                </div>
+            )
+        }
     }
 
     handleChange = username => {
@@ -46,7 +63,7 @@ class Login extends Component {
             .catch(error => {
                 if (error.response.status === 400) {
                     this.setState({
-                        user: {error: `${username} is not available`}
+                        error: true
                     })
                 }
             })
@@ -55,18 +72,3 @@ class Login extends Component {
 }
 
 export default Login
-
-
-// api.getUserByUsername(this.state.username)
-//         .then(user => {
-//             this.setState({
-//                 user
-//             })
-//         })
-//         .catch(error => {
-//             if (error.response.status === 400) {
-//                 this.setState({
-//                     message: 'Username does not exist'
-//                 })
-//             }
-//         })
