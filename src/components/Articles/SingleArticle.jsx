@@ -9,11 +9,17 @@ class SingleArticle extends Component {
 
     state = {
         singleArticle: {},
-        loading: true
+        loading: true,
+        commentsOff: true
     }
 
     render() {    
         const { title, body, created_at, created_by, belongs_to, _id } = this.state.singleArticle
+
+        const style = {
+            transform: 'scale(1.6)',
+            transition: '0.5s' 
+        }
 
         return this.state.loading ? <Loading /> :
         (
@@ -24,10 +30,25 @@ class SingleArticle extends Component {
                     <h3>Created: { created_at }</h3>
                     <h3>Author: { created_by.name }</h3>
                 </div>
-                <div>
-                    <Link to={`/topic/${belongs_to}/articles`}><button className="BackButton">BACK</button></Link>
-                    <Link to={`/articles/${_id}`}>-</Link>{'  |  '}
-                    <Link to={`/articles/${_id}/comments`}>+</Link>
+                <div className="ButtonLinks">
+                    <Link to={`/topic/${belongs_to}/articles`}><button className="BackButton">{'<<<'}</button></Link>
+                    <div>
+
+                        <Link to={`/articles/${_id}`}>
+                        <button 
+                        style={!this.state.commentsOff ? style : null}
+                        onClick={this.changeCommentsTrue} 
+                        className="CommentButton minus"></button>
+                        </Link>
+
+                        <Link to={`/articles/${_id}/comments`}>
+                        <button 
+                        style={this.state.commentsOff ? style : null}
+                        onClick={this.changeCommentsFalse} 
+                        className="CommentButton add"></button>
+                        </Link>
+
+                    </div>
                 </div>
                 
                 <Router>
@@ -44,6 +65,18 @@ class SingleArticle extends Component {
                 singleArticle,
                 loading: false
             })
+        })
+    }
+
+    changeCommentsTrue = () => {
+        this.setState({
+            commentsOff: true
+        })
+    }
+
+    changeCommentsFalse = () => {
+        this.setState({
+            commentsOff: false
         })
     }
 }

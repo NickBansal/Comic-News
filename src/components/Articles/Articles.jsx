@@ -16,7 +16,7 @@ const Articles = ({ articles }) => {
                                 <h3>Comment Count: {article.comment_count}</h3>
                                 <h3>Votes: {article.votes}</h3>
                             </div>
-                            <hr />
+                            <hr className="ArticleHR"/>
                         </div>
                     </Link>
                 )

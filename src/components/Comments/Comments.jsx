@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import * as api from '../../api'
+import './Comments.css'
 
 class Comments extends Component {
 
@@ -13,14 +14,22 @@ class Comments extends Component {
         if (!this.state.loading && this.state.comments.length === 0) return <h1>No Comments ere...</h1>
         return (
             <div>
-                <hr />
-                {this.state.comments.map(comment => {
-                    return (
-                        <div>
-                            <p>{comment.body}</p>
-                        </div>
-                    )
-                })}
+                <hr className="CommentsHR"/>
+                <table>
+                    <th>
+                        <h1><em>Comments</em></h1>
+                    </th>
+                    <tr>
+                        {this.state.comments.map(comment => {
+                            return (
+                                <div>
+                                    <p>{comment.body}</p>
+
+                                </div>
+                            )
+                        })}
+                    </tr>
+                </table>
             </div>
         )
     }
