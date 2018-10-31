@@ -4,3 +4,38 @@
     background: maroon;
     margin: 0 auto;
 }
+
+.CommentsFull {
+    width: 90%;
+    border-radius: 20px;
+}
+
+table {
+    padding-bottom: 20px;
+}
+
+.CommentData {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    background: orange;
+    padding: 10px;
+    border-right: 2px solid black;
+    border-left: 2px solid black;
+    border-bottom: 2px solid black;
+}
+
+.CommentData h3 {
+    margin: 0;
+}
+
+.CommentsPara {
+    border-radius: 40px;
+}
+
+.CommentsPara p {
+    margin-bottom: 0;
+    background: gold;
+    padding: 10px;
+    border: 2px solid black;
+}

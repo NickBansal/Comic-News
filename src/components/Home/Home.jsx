@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
 import Articles from '../Articles/Articles'
 import SingleArticle from '../Articles/SingleArticle'
-import { Router } from '@reach/router'
+import Login from '../Login/Login'
+import { Router, Link } from '@reach/router'
 import * as api from '../../api'
 import './Home.css'
 
@@ -39,7 +40,15 @@ class Home extends Component {
                     <div className="television__center">
                         <div style={ this.props.switch ? teleOn : null } className="television__screen">
                         
-                        { this.props.switch && this.state.articles.length < 1 && <h1>Please select a Topic...</h1>}
+                        { this.props.switch && this.state.articles.length < 1 && 
+                        <div>
+                            <h1>Please Login or select a Topic...</h1> 
+                            <Router>
+                                <Login path="/login"/>
+                            </Router>
+                        </div> }
+
+
                         { this.props.switch && this.state.articles.length > 0 && 
                         
                         <Router>
@@ -49,17 +58,18 @@ class Home extends Component {
 
                             <SingleArticle
                             path="/articles/:article_id/*" />
+
                         </Router> }
 
                         </div>
                         <div className="television__channels-wrapper">
                             <ul className="television__channels">
-                                <li className="television__channel votes"></li>
-                                <h2>Votes</h2>
+                                <Link onClick={this.changeLogin} to="/login"><li className="television__channel votes"></li></Link>
+                                <h2>Login</h2>
                                 <li className="television__channel created"></li>
-                                <h2>Created</h2>
+                                <h2>Votes</h2>
                                 <li className="television__channel comments"></li>
-                                <h2>Most Comments</h2>
+                                <h2>Created</h2>
                             </ul>
                         </div>
                         <div className="switch">
@@ -74,6 +84,12 @@ class Home extends Component {
                     </div>
                 </div>
         )
+    }
+
+    changeLogin = () => {
+        this.setState({
+            articles: []
+        })
     }
 
 

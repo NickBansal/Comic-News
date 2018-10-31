@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import Home from './components/Home/Home'
 import Navbar from './components/Navbar/Navbar'
-import NavbarOpen from './components/Navbar/NavbarOpen'
+import NavbarOpen from './components/Navbar/NavbarOpen';
 import * as api from './api'
 import './App.css';
 
@@ -28,10 +28,12 @@ class App extends Component {
         changeTopic={this.changeTopic}/>}
         
         <Home 
+        path="/"
         switchTelevision={this.switchTelevision}
         open={this.state.open}
         switch={this.state.switch}
         chosenTopic={this.state.chosenTopic} />
+
       </div>
     );
   }

@@ -5,7 +5,7 @@ h1 {
 
 a {
     text-decoration: none;
-    color:#5a5656
+    color:black
 }
 
 p {
@@ -48,6 +48,7 @@ p {
     justify-content: center;
     align-items: center;
     font-size: 40px;
+    color: rgb(255, 230, 0)
 }
 
 
@@ -116,9 +117,9 @@ p {
     border: 1px black solid;
 }
 
-/* .CommentButton:hover {
+.CommentButton:hover {
     cursor: pointer;
-} */
+}
 
 .CommentButton:active {
     box-shadow: 1px 1px 1px black;

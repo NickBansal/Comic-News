@@ -32,7 +32,7 @@ class SingleArticle extends Component {
                 <p>{ body }</p>
                 <div className="SingleArticle">
                     <h2>{ created_by.name }</h2>
-                    <h2>{ created_at }</h2>
+                    <h2>{ created_at.split('T')[0] }</h2>
                     <h2>Votes: {votes}</h2>
                 </div>
                 

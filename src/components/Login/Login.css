@@ -1,0 +1,44 @@
+input {
+    height: 3rem;
+    width: 60%;
+    display: block;
+    margin: 10px auto;
+    border-radius: 35px;
+    padding-left: 20px;
+    font-size: 28px;
+    font-family: 'Patrick Hand', cursive;
+    outline: none;
+}
+
+input:focus {
+    background: #eef4c4;
+    box-shadow: inset 5px 5px 5px #7a4e27;
+}
+
+.InputButton {
+    height: 50px;
+    width: 100px;
+    border-radius: 50px;
+    font-size: 33px;
+    background: #7a4e27;
+    color: #eef4c4;
+    font-family: 'Patrick Hand', cursive;
+    border: 2px black solid;
+    box-shadow: 5px 5px 5px black;
+}
+
+.InputButton:hover {
+    color: #7a4e27;
+    background: #eef4c4;
+    cursor: pointer;
+    transform: scale(1.2)
+}
+
+.InputButton:focus {
+    outline: none;
+}
+
+.InputButton:active {
+    transform: translateY(5px);
+    box-shadow: 1px 1px 1px black
+}

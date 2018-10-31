@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import './Login.css'
 
 class Login extends Component {
 
@@ -9,9 +10,9 @@ class Login extends Component {
     render() {
         
         return (
-            <form onSubmit={this.handleSubmit}>
-                <input type="text" name="username" onchange={this.handleChange}/>
-                <button>Submit Me</button>
+            <form onSubmit={this.handleChange}>
+                <input placeholder="Login..." type="text" name="username" onchange={this.handleChange}/>
+                <button onClick={this.handleSubmit} className="InputButton">Login</button>
             </form>
         )
     }
