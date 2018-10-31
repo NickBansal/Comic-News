@@ -34,7 +34,11 @@ p {
 
 .SingleArticle {
     display: flex;
-    justify-content: space-around;
+    flex-direction: column;
+}
+
+.SingleArticle h2 {
+    margin: 0;
 }
 
 .SingleArticleTitle {
@@ -52,6 +56,7 @@ p {
 .ButtonLinks {
     display: flex;
     justify-content: space-around;
+    align-items: center;
     margin: 30px 0;
 }
 
@@ -81,6 +86,7 @@ p {
     backface-visibility: hidden;
     perspective: 1000px;
     cursor: pointer;
+    background: rgb(168, 9, 9)
 }
 
 @keyframes shake {
@@ -110,9 +116,9 @@ p {
     border: 1px black solid;
 }
 
-.CommentButton:hover {
+/* .CommentButton:hover {
     cursor: pointer;
-}
+} */
 
 .CommentButton:active {
     box-shadow: 1px 1px 1px black;
@@ -120,9 +126,9 @@ p {
 }
 
 .minus {
-    background: red
+    background: rgb(255, 0, 0)
 }
 
 .add {
-    background: green
+    background: rgb(4, 255, 4)
 }

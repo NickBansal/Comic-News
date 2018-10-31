@@ -14,11 +14,15 @@ class SingleArticle extends Component {
     }
 
     render() {    
-        const { title, body, created_at, created_by, belongs_to, _id } = this.state.singleArticle
+        const { title, body, created_at, created_by, belongs_to, _id, votes } = this.state.singleArticle
 
         const style = {
             transform: 'scale(1.6)',
-            transition: '0.5s' 
+            transition: '0.5s',
+        }
+
+        const gray = {
+            filter: 'grayscale(80%)'
         }
 
         return this.state.loading ? <Loading /> :
@@ -27,23 +31,25 @@ class SingleArticle extends Component {
                 <h1 className="SingleArticleTitle">{ title }</h1>
                 <p>{ body }</p>
                 <div className="SingleArticle">
-                    <h3>Created: { created_at }</h3>
-                    <h3>Author: { created_by.name }</h3>
+                    <h2>{ created_by.name }</h2>
+                    <h2>{ created_at }</h2>
+                    <h2>Votes: {votes}</h2>
                 </div>
+                
                 <div className="ButtonLinks">
                     <Link to={`/topic/${belongs_to}/articles`}><button className="BackButton">{'<<<'}</button></Link>
                     <div>
 
                         <Link to={`/articles/${_id}`}>
                         <button 
-                        style={!this.state.commentsOff ? style : null}
+                        style={!this.state.commentsOff ? style : gray}
                         onClick={this.changeCommentsTrue} 
                         className="CommentButton minus"></button>
                         </Link>
 
                         <Link to={`/articles/${_id}/comments`}>
                         <button 
-                        style={this.state.commentsOff ? style : null}
+                        style={this.state.commentsOff ? style : gray}
                         onClick={this.changeCommentsFalse} 
                         className="CommentButton add"></button>
                         </Link>
