@@ -42,12 +42,12 @@
 
 .SelectSubmit select {
     height: 100%;
-    width: 150px;
+    width: 280px;
     font-size: 20px;
     font-family: 'Patrick Hand', cursive;
     background: #eef4c4;
     color: #7a4e27;
-    margin-right: 5px;
+    margin-right: 20px;
     border: 2px black solid;
 }
 

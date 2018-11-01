@@ -1,0 +1,24 @@
+.DeleteButton button {
+    height: 3rem;
+    background: red;
+    border: 2px solid black;
+    font-size: 23px;
+    border-radius: 30px;
+    box-shadow: 5px 5px 2px;
+    font-family: 'Patrick Hand', cursive;
+    margin: 10px
+}
+
+.DeleteButton button:hover {
+    background: lightcoral;
+    cursor: pointer;
+}
+
+.DeleteButton button:focus {
+    outline: none
+} 
+
+.DeleteButton button:active {
+    box-shadow: 1px 1px 1px black;
+    transform: translateY(4px)
+} 

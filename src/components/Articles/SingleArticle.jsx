@@ -15,7 +15,6 @@ class SingleArticle extends Component {
 
     render() {    
         const { title, body, created_at, created_by, belongs_to, _id, votes } = this.state.singleArticle
-
         const style = {
             transform: 'scale(1.6)',
             transition: '0.5s',
@@ -58,7 +57,11 @@ class SingleArticle extends Component {
                 </div>
                 
                 <Router>
-                    <Comments articleId={_id} path="comments"/>
+                    <Comments 
+                    singleArticleId={this.state.singleArticle._id}
+                    userName={this.props.userName}
+                    articleId={_id} 
+                    path="comments"/>
                 </Router>
             </div> 
         )

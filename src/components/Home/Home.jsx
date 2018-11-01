@@ -5,6 +5,7 @@ import Login from '../Login/Login'
 import { Router, Link } from '@reach/router'
 import * as api from '../../api'
 import './Home.css'
+import NotFound from '../Notfound'
 
 class Home extends Component {
 
@@ -30,7 +31,7 @@ class Home extends Component {
         const teleOn = {
             background: '#eed5b6'
         }
-
+        
         return (
             <div>
                 <div style={this.props.open ? inStyle : outStyle} className="television">
@@ -52,6 +53,7 @@ class Home extends Component {
                         <div>
                             <Router>
                                 <Login 
+                                clearStorage={this.clearStorage}
                                 changeArticles={this.state.articles}
                                 changeTopic={this.props.changeTopic}
                                 changeUsersName={this.changeUsersName}
@@ -65,13 +67,15 @@ class Home extends Component {
                         
                         <Router>
                             <Articles 
-                            username={this.state.userName}
+                            userName={this.state.userName}
                             articles={this.state.articles}
                             path="/topic/:topic/articles"/> 
 
                             <SingleArticle
-                            username={this.state.userName}
+                            userName={this.state.userName}
                             path="/articles/:article_id/*" />
+
+                            <NotFound default/>
 
                         </Router> }
 
@@ -112,7 +116,17 @@ class Home extends Component {
         })
     }
 
-    componentDidUpdate(prevProps) {
+    clearStorage = () => {
+        localStorage.clear()
+    }
+
+    componentDidMount() {
+        this.setState({
+            userName: JSON.parse(localStorage.getItem('userName'))
+        })
+    }
+
+    componentDidUpdate(prevProps, prevState) {
 		if (prevProps.chosenTopic !== this.props.chosenTopic) {
             api.getArticleByTopic(this.props.chosenTopic)
             .then(articles => {
@@ -120,6 +134,9 @@ class Home extends Component {
                     articles
                 })
             })
+        }
+        if (prevState.userName !== this.state.userName ) {
+            localStorage.setItem('userName', JSON.stringify(this.state.userName))
         }
     }
 }

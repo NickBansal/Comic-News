@@ -26,8 +26,18 @@ export const getUserByUsername = async (username) => {
     return data
 }
 
-export const addNewArticle = async (article) => {
+export const addNewArticle = async article => {
     const { title, body, topic, created_by } = article
     const { data } = await axios.post(`${DB_URL}/topics/${topic}/articles`, { title, body, created_by })
     return data 
+}
+
+export const deleteComment = async id => {
+	await axios.delete(`${DB_URL}/comments/${id}`);
+}
+
+export const addNewComment = async article => {
+    const { body, created_by, id } = article
+    const { data } = await axios.post(`${DB_URL}/articles/${id}/comments`, { body, created_by })
+    return data
 }
