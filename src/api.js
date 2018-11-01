@@ -27,7 +27,7 @@ export const getUserByUsername = async (username) => {
 }
 
 export const addNewArticle = async (article) => {
-    console.log(article)
-    // const { data } = await axios.post()
-    return article 
+    const { title, body, topic, created_by } = article
+    const { data } = await axios.post(`${DB_URL}/topics/${topic}/articles`, { title, body, created_by })
+    return data 
 }

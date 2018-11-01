@@ -63,7 +63,11 @@ class Login extends Component {
                     onClick={this.clickClear}
                     className="InputButton">LogOut</button>
 
-                    { this.state.addArticle && <AddArticle /> }
+                    { this.state.addArticle && 
+                    <AddArticle 
+                    changeArticles={this.props.articles}
+                    changeTopic={this.props.changeTopic}
+                    userId={this.state.user._id}/> }
                 </div>
             )
         }

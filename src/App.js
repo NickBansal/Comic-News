@@ -29,6 +29,7 @@ class App extends Component {
         
         <Home 
         path="/"
+        changeTopic={this.changeTopic}
         switchTelevision={this.switchTelevision}
         open={this.state.open}
         switch={this.state.switch}

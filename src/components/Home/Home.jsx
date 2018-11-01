@@ -52,6 +52,8 @@ class Home extends Component {
                         <div>
                             <Router>
                                 <Login 
+                                changeArticles={this.state.articles}
+                                changeTopic={this.props.changeTopic}
                                 changeUsersName={this.changeUsersName}
                                 path="/login"/>
                             </Router>

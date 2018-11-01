@@ -2,3 +2,76 @@
     display: absolute
 }
 
+.AddArticleForm {
+    display: flex;
+    flex-direction: column;
+    width: 80%;
+    margin: 10px auto;
+}
+
+.AddTitle {
+    height: 2rem;
+    border-radius: 8px;
+    margin: 5px;
+    font-size: 20px;
+    border: 2px solid black;
+    padding: 0 15px;
+    font-family: 'Patrick Hand', cursive;
+    outline: none;
+}
+
+.AddBody {
+    height: 6rem;
+    border-radius: 10px;
+    margin: 5px;
+    border: 2px solid black;
+    font-family: 'Patrick Hand', cursive;
+    font-size: 20px;
+    padding: 0 15px;
+    display: flex;
+    align-items: flex-start;
+    outline: none;
+}
+
+.SelectSubmit {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    height: 2.5rem;
+}
+
+.SelectSubmit select {
+    height: 100%;
+    width: 150px;
+    font-size: 20px;
+    font-family: 'Patrick Hand', cursive;
+    background: #eef4c4;
+    color: #7a4e27;
+    margin-right: 5px;
+    border: 2px black solid;
+}
+
+.SelectSubmit select:hover {
+    transform: scale(1.2);
+    background:#7a4e27;
+    color: #eef4c4;
+}
+
+.SelectSubmit input {
+    height: 100%;
+    width: 150px;
+    font-size: 20px;
+    border-radius: 10px;
+    font-family: 'Patrick Hand', cursive;
+    background: #7a4e27;
+    color: #eef4c4;
+    border: 2px black solid;
+    margin-left: 5px
+}
+
+.SelectSubmit input:hover {
+    color: #7a4e27;
+    background: #eef4c4;
+    cursor: pointer;
+    transform: scale(1.2)
+}
