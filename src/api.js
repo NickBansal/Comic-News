@@ -22,7 +22,12 @@ export const getCommentsByArticle = async (article_id) => {
 }
 
 export const getUserByUsername = async (username) => {
-    console.log(username, " <<<<<<< API USERNAME")
     const { data } = await axios.get(`${DB_URL}/users/${username}`)
     return data
+}
+
+export const addNewArticle = async (article) => {
+    console.log(article)
+    // const { data } = await axios.post()
+    return article 
 }

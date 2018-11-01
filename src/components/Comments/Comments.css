@@ -39,3 +39,26 @@ table {
     padding: 10px;
     border: 2px solid black;
 }
+
+
+/* ----------- USER PROFILE ----------- */
+
+.UserProfile {
+    display: flex;
+    flex-direction: row;
+}
+
+.UserProfile img {
+    height: 70px;
+    width: 70px;
+    border-radius: 50px;
+    border: 2px black solid;
+}
+
+.UserProfileData {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin-left: 5px;
+}

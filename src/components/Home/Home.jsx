@@ -10,7 +10,9 @@ class Home extends Component {
 
     state = {
         articles: [],
-        loading: true
+        loading: true,
+        userName: '',
+        login: false
     }
 
     render () {
@@ -40,23 +42,33 @@ class Home extends Component {
                     <div className="television__center">
                         <div style={ this.props.switch ? teleOn : null } className="television__screen">
                         
+                        { this.props.switch && !this.state.login && this.state.articles.length < 1 && 
+                            <div>
+                                <h1>Please select a Topic...</h1>
+                            </div>
+                        }
 
-                        { this.props.switch && this.state.articles.length < 1 && 
+                        { this.props.switch && this.state.login &&
                         <div>
                             <Router>
-                                <Login path="/login"/>
+                                <Login 
+                                changeUsersName={this.changeUsersName}
+                                path="/login"/>
                             </Router>
-                        </div> }
+                        </div> 
+                        }
 
 
                         { this.props.switch && this.state.articles.length > 0 && 
                         
                         <Router>
                             <Articles 
+                            username={this.state.userName}
                             articles={this.state.articles}
                             path="/topic/:topic/articles"/> 
 
                             <SingleArticle
+                            username={this.state.userName}
                             path="/articles/:article_id/*" />
 
                         </Router> }
@@ -88,10 +100,15 @@ class Home extends Component {
 
     changeLogin = () => {
         this.setState({
-            articles: []
+            login: true
         })
     }
 
+    changeUsersName = userName => {
+        this.setState({
+            userName
+        })
+    }
 
     componentDidUpdate(prevProps) {
 		if (prevProps.chosenTopic !== this.props.chosenTopic) {

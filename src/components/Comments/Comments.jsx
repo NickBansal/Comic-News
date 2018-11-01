@@ -33,11 +33,14 @@ class Comments extends Component {
                                 <div className="CommentsPara">
                                     <p>{body}</p>
                                     <div className="CommentData">
-                                        <div>
-                                        <h3>{ created_by.username }</h3>
-                                        <h3>{created_at.split('T')[0]}</h3>
+                                        <div className="UserProfile">
+                                            <img src={ created_by.avatar_url } alt="Avatar"/>
+                                            <div className="UserProfileData">
+                                                <h3>{ created_by.username }</h3>
+                                                <h3>{created_at.split('T')[0]}</h3>
+                                            </div>
                                         </div>
-                                        <h3>Votes: { votes }</h3>
+                                        <h2>Votes: { votes }</h2>
                                     </div>
                                 </div>
                             )

@@ -1,4 +1,4 @@
-input {
+input.LoginInput {
     height: 3rem;
     width: 60%;
     display: block;
@@ -10,14 +10,14 @@ input {
     outline: none;
 }
 
-input:focus {
+input.LoginInput:focus {
     background: #eef4c4;
     box-shadow: inset 5px 5px 5px #7a4e27;
 }
 
-.InputButton {
+.AddButton {
     height: 50px;
-    width: 100px;
+    width: 300px;
     border-radius: 50px;
     font-size: 33px;
     background: #7a4e27;
@@ -25,20 +25,34 @@ input:focus {
     font-family: 'Patrick Hand', cursive;
     border: 2px black solid;
     box-shadow: 5px 5px 5px black;
+    margin: 10px;
 }
 
-.InputButton:hover {
+.InputButton {
+    height: 50px;
+    width: 150px;
+    border-radius: 50px;
+    font-size: 33px;
+    background: #7a4e27;
+    color: #eef4c4;
+    font-family: 'Patrick Hand', cursive;
+    border: 2px black solid;
+    box-shadow: 5px 5px 5px black;
+    margin: 10px;
+}
+
+.InputButton:hover, .AddButton:hover  {
     color: #7a4e27;
     background: #eef4c4;
     cursor: pointer;
     transform: scale(1.2)
 }
 
-.InputButton:focus {
+.InputButton:focus, .AddButton:focus {
     outline: none;
 }
 
-.InputButton:active {
+.InputButton:active, .AddButton:active {
     transform: translateY(5px);
     box-shadow: 1px 1px 1px black
 }
@@ -48,13 +62,33 @@ input:focus {
     border: 10px solid black;
     border-radius: 40px;
     width: 80%;
-    margin: 10% auto; 
+    margin: 5% auto 5px;
     background: gold;
-    align-items: flex-start
+    align-items: flex-start;
+    height: 200px;
 }
 
 .LoggedIn img {
     border-top-left-radius: 30px;
     border-bottom-left-radius: 30px;
-    border-right: 5px solid black
+    border-right: 5px solid black;
+    height: 100%;
+    width: 200px;
+}
+
+.LoggedInData {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center
+}
+
+.LoggedInData {
+    margin: 0 auto;
+}
+
+.FullLogIn {
+    display: absolute;
+    /* flex-direction: column;
+    align-items: center; */
 }

@@ -8,7 +8,7 @@ import './App.css';
 class App extends Component {
 
   state = {
-    switch: false,
+    switch: true,
     open: false,
     topics: [],
     chosenTopic: ''
@@ -66,7 +66,6 @@ class App extends Component {
       })
     })
   }
-
 }
 
 export default App;
