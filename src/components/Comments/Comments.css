@@ -59,3 +59,28 @@
     justify-content: center;
     margin-left: 5px;
 }
+
+.AddComment {
+    margin: 10px;
+    border-radius: 30px;
+    padding: 5px;
+    border: 2px black solid;
+    font-family: 'Patrick Hand', cursive;
+    background: maroon;
+    color: gold;
+    box-shadow: 5px 5px 2px black
+}
+
+.AddComment:hover {
+    background: gold;
+    color: maroon
+}
+
+.AddComment:active {
+    box-shadow: none;
+    transform: translateY(4px);
+} 
+
+.AddComment:focus {
+    outline: none;
+}

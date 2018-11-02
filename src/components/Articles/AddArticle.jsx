@@ -6,7 +6,7 @@ import { navigate } from '@reach/router'
 class AddArticle extends Component {
 
     state = {
-        created_by: this.props.userId
+        user: {}
     }
 
     render() {
@@ -50,7 +50,7 @@ class AddArticle extends Component {
     
     handleSubmit = event => {
         event.preventDefault();
-        api.addNewArticle(this.state)
+        api.addNewArticle(this.state, this.props.userId)
         .then(() => {
             this.props.changeTopic(this.state.topic)
             navigate(`topic/${this.state.topic}/articles`)

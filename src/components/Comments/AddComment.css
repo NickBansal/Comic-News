@@ -1,0 +1,51 @@
+.AddCommentForm {
+    display: flex;
+    flex-direction: column;
+    width: 80%;
+    margin: 0 auto;
+    height: 10rem;
+    align-items: center;
+}
+
+.AddCommentDiv {
+    margin: 20px;
+    height: 10rem;
+}
+
+textarea {
+    height: 8rem;
+    width: 80%;
+    border-radius: 10px;
+    border: 2px solid black;
+    font-family: 'Patrick Hand', cursive;
+    font-size: 25px;
+    padding: 15px;
+    display: flex; 
+    align-items: flex-start;
+    outline: none;
+}
+
+.SubmitForm {
+    width: 40%;
+    height: 2rem;
+    border-radius: 20px;
+    font-size: 20px;
+    background: gold;
+    color: maroon;
+    border: 2px black solid;
+    box-shadow: 4px 4px 2px black
+}
+
+.SubmitForm:hover {
+    color: red;
+    cursor: pointer;
+}
+
+.SubmitForm:focus {
+    outline: none;
+}
+
+.SubmitForm:active {
+    transform: translateY(3px);
+    box-shadow: 1px 1px 2px black
+}

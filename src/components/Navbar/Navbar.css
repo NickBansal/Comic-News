@@ -13,6 +13,19 @@
     padding: 0 30px;
 }
 
+a.HomeLink {
+  text-decoration: none;
+  color: #eef4c4;
+}
+
+a.HomeLink:hover {
+  transform: scale(1.3) translateX(15px);
+}
+
+a.HomeLink:active {
+  transform: scale(1)
+}
+
 .burger-menu,
 .burger-menu.open {
   display: inline-block;

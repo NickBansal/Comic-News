@@ -1,18 +1,20 @@
 import React, { Component } from 'react';
-import Articles from '../Articles/Articles'
+import TopicArticles from '../Articles/TopicArticles'
 import SingleArticle from '../Articles/SingleArticle'
+import AllArticles from '../Articles/AllArticles'
+import HomePage from './HomePage'
 import Login from '../Login/Login'
 import { Router, Link } from '@reach/router'
 import * as api from '../../api'
 import './Home.css'
-import NotFound from '../Notfound'
+// import NotFound from '../Notfound'
 
 class Home extends Component {
 
     state = {
         articles: [],
         loading: true,
-        userName: '',
+        user: {},
         login: false
     }
 
@@ -44,19 +46,21 @@ class Home extends Component {
                         <div style={ this.props.switch ? teleOn : null } className="television__screen">
                         
                         { this.props.switch && !this.state.login && this.state.articles.length < 1 && 
-                            <div>
-                                <h1>Please select a Topic...</h1>
-                            </div>
+                            <Router>
+                                <HomePage path="/" />
+                                <AllArticles path="/articles"/>
+                            </Router>
                         }
 
                         { this.props.switch && this.state.login &&
                         <div>
                             <Router>
                                 <Login 
-                                clearStorage={this.clearStorage}
+                                logOut={this.logOut}
                                 changeArticles={this.state.articles}
                                 changeTopic={this.props.changeTopic}
-                                changeUsersName={this.changeUsersName}
+                                setUser={this.setUser}
+                                user={this.state.user}
                                 path="/login"/>
                             </Router>
                         </div> 
@@ -66,16 +70,17 @@ class Home extends Component {
                         { this.props.switch && this.state.articles.length > 0 && 
                         
                         <Router>
-                            <Articles 
-                            userName={this.state.userName}
+
+                            <TopicArticles 
+                            userName={this.state.user.username}
                             articles={this.state.articles}
                             path="/topic/:topic/articles"/> 
 
                             <SingleArticle
-                            userName={this.state.userName}
+                            user={this.state.user}
                             path="/articles/:article_id/*" />
 
-                            <NotFound default/>
+                            {/* <NotFound default/> */}
 
                         </Router> }
 
@@ -83,8 +88,10 @@ class Home extends Component {
                         <div className="television__channels-wrapper">
                             <ul className="television__channels">
                                 <Link onClick={this.changeLogin} to="/login"><li className="television__channel votes"></li></Link>
-                                <h2>Login</h2>
-                                <li className="television__channel created"></li>
+                                <h2>UserPage</h2>
+                                <li 
+                                onClick={() => console.log('HELLO')}
+                                className="television__channel created"></li>
                                 <h2>Votes</h2>
                                 <li className="television__channel comments"></li>
                                 <h2>Created</h2>
@@ -110,20 +117,26 @@ class Home extends Component {
         })
     }
 
-    changeUsersName = userName => {
+    setUser = user => {
         this.setState({
-            userName
+            user
         })
     }
 
-    clearStorage = () => {
-        localStorage.clear()
+    logOut= () => {
+        this.setState({
+            user: {}
+        })
     }
 
     componentDidMount() {
-        this.setState({
-            userName: JSON.parse(localStorage.getItem('userName'))
-        })
+        const userVariable = localStorage.getItem('user'); 
+        if (userVariable) {
+            this.setState({
+                user: JSON.parse(userVariable)
+            })
+        }
+        
     }
 
     componentDidUpdate(prevProps, prevState) {
@@ -135,9 +148,11 @@ class Home extends Component {
                 })
             })
         }
-        if (prevState.userName !== this.state.userName ) {
-            localStorage.setItem('userName', JSON.stringify(this.state.userName))
-        }
+        if (prevState.user.username !== this.state.user.username) {
+            this.state.user.username ?
+            localStorage.setItem('user', JSON.stringify(this.state.user)) :
+            localStorage.removeItem('user')
+        } 
     }
 }
 

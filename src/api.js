@@ -11,6 +11,11 @@ export const getArticleByTopic = async (topic) => {
     return data
 }
 
+export const getAllArticles = async () => {
+    const { data } = await axios.get(`${DB_URL}/articles`)
+    return data
+}
+
 export const getArticleById = async (article_id) => {
     const { data } = await axios.get(`${DB_URL}/articles/${article_id}`)
     return data
@@ -26,8 +31,10 @@ export const getUserByUsername = async (username) => {
     return data
 }
 
-export const addNewArticle = async article => {
-    const { title, body, topic, created_by } = article
+export const addNewArticle = async (article, id) => {
+    console.log(article, id)
+    const created_by = id
+    const { title, body, topic } = article
     const { data } = await axios.post(`${DB_URL}/topics/${topic}/articles`, { title, body, created_by })
     return data 
 }
@@ -36,8 +43,9 @@ export const deleteComment = async id => {
 	await axios.delete(`${DB_URL}/comments/${id}`);
 }
 
-export const addNewComment = async article => {
-    const { body, created_by, id } = article
-    const { data } = await axios.post(`${DB_URL}/articles/${id}/comments`, { body, created_by })
+export const addNewComment = async (article, id, articleId) => {
+    console.log(article)
+    const { body } = article
+    const { data } = await axios.post(`${DB_URL}/articles/${articleId}/comments`, { body, created_by: id })
     return data
 }

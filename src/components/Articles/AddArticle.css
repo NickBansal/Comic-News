@@ -57,6 +57,10 @@
     color: #eef4c4;
 }
 
+.SelectSubmit select:focus {
+    outline: none
+}
+
 .SelectSubmit input {
     height: 100%;
     width: 150px;

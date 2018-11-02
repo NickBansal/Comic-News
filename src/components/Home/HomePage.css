@@ -1,0 +1,26 @@
+.HomePage {
+    margin: 19% auto;
+    font-size: 50px;
+}
+
+.HomePage h1 {
+    font-family: 'Patrick Hand', cursive;
+}
+
+.HomePage button {
+    border-radius: 32px;
+    height: 4rem;
+    font-size: 17px;
+    background: gold;
+    border: 5px red solid;
+    box-shadow: 10px 10px 2px black;
+}
+
+.HomePage button:hover {
+    background: yellow;
+}
+
+.HomePage button:active {
+    transform: translateY(8px) translateX(8px);
+    box-shadow: 2px 2px 2px black
+}

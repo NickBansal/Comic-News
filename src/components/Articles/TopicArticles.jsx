@@ -2,7 +2,7 @@ import React from 'react'
 import { Link } from '@reach/router'
 import './Articles.css'
 
-const Articles = ({ articles }) => {
+const TopicArticles = ({ articles }) => {
     
     return (
         <div>
@@ -25,4 +25,4 @@ const Articles = ({ articles }) => {
     )
 }
 
-export default Articles
+export default TopicArticles
