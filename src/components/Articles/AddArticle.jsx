@@ -1,12 +1,12 @@
 import React, { Component } from 'react';
 import './AddArticle.css'
 import * as api from '../../api'
-import { navigate } from '@reach/router'
 
 class AddArticle extends Component {
 
     state = {
-        user: {}
+        user: {},
+        error: false
     }
 
     render() {
@@ -19,11 +19,11 @@ class AddArticle extends Component {
                     name="title" 
                     type="text" 
                     className="AddTitle"/>
-                    <input 
+                    <textarea 
                     placeholder="Body"
                     onChange={(event) => this.handleChange(event.target)}
                     name="body" 
-                    type="text" 
+                    
                     className="AddBody"/>
                     <div className="SelectSubmit" >
                         <select 
@@ -36,8 +36,9 @@ class AddArticle extends Component {
                         </select>
                         <input type="submit"/>
                     </div>
-                   
+                    {this.state.error && <h2 style={{ 'marginBottom': '0'}}>*** All fields MUST be completed ***</h2>}
                 </form>
+                
             </div>
         )
     }
@@ -50,10 +51,17 @@ class AddArticle extends Component {
     
     handleSubmit = event => {
         event.preventDefault();
-        api.addNewArticle(this.state, this.props.userId)
-        .then(() => {
-            this.props.changeTopic(this.state.topic)
-            navigate(`topic/${this.state.topic}/articles`)
+        api.addNewArticle(this.state, this.props.user._id)
+        .then(article => {
+           this.props.addNewArticle(article)
+           this.setState({
+            error: false
+           })
+        })
+        .catch(() => {
+            this.setState({
+                error: true
+            })
         })
 	};
 }

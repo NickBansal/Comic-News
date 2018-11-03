@@ -3,6 +3,7 @@ import * as api from '../../api'
 import './Comments.css'
 import DeleteComment from '../Delete/DeleteComment'
 import AddComment from './AddComment'
+import { Link } from '@reach/router'
 
 class Comments extends Component {
 
@@ -29,6 +30,7 @@ class Comments extends Component {
                 <h1><em>Add Comment</em></h1></button>
                 {this.state.commentAdd && 
                 <AddComment 
+                addNewComment={this.addNewComment}
                 user={this.props.user}
                 articleId={this.props.articleId}/>}
             </div>
@@ -43,8 +45,13 @@ class Comments extends Component {
                         onClick={this.changeAddComment}>
                         <h1><em>Add Comment</em></h1></button>
                         </div>
-                        {this.state.commentAdd && 
+                        {this.state.commentAdd && !this.props.user.username && 
+                        <div className="LoginWarning">
+                        <h2 className="CommentWarning">In order to add a comment, please login <Link to="/login" className="Here">HERE</Link>...</h2>
+                    </div>}
+                        {this.state.commentAdd && this.props.user.username && 
                         <AddComment 
+                        addNewComment={this.addNewComment}
                         user={this.props.user}
                         articleId={this.props.articleId}/>}
                         <div>
@@ -53,12 +60,13 @@ class Comments extends Component {
                                 return (
                                     <div key={index} className="CommentsPara">
                                         <p>{body}
-                                        </p>
+                                       
                                         { this.props.user.username === created_by.username && 
                                             <DeleteComment 
                                             deletedComment={this.deletedComment}
                                             articleId={this.props.articleId}
                                             id={_id}/> }
+                                             </p>
                                         <div className="CommentData">
                                             <div className="UserProfile">
                                                 <img src={ created_by.avatar_url } alt="Avatar"/>
@@ -67,7 +75,6 @@ class Comments extends Component {
                                                     <h3>{created_at.split('T')[0]}</h3>
                                                 </div>
                                             </div>
-                                            
                                             <h2>Votes: { votes }</h2>
                                         </div>
                                     </div>
@@ -82,9 +89,15 @@ class Comments extends Component {
     deletedComment = (id) => {
         api.deleteComment(id)
         const newArray = this.state.comments.filter(comment => comment._id !== id)
-        console.log(newArray)
         this.setState({
             comments: newArray
+        })
+    }
+
+    addNewComment = comment => {
+        const newComments = [...this.state.comments, comment]
+        this.setState({
+            comments: newComments.sort((a,b) => new Date(b.created_at) - new Date(a.created_at))
         })
     }
 
@@ -97,8 +110,9 @@ class Comments extends Component {
     componentDidMount () {
         api.getCommentsByArticle(this.props.articleId)
         .then(comments => {
+            const newCommentsList = comments.sort((a,b) => new Date(b.created_at) - new Date(a.created_at))
             this.setState({
-                comments,
+                comments: newCommentsList,
                 loading: false
             })
         })

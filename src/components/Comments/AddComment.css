@@ -3,13 +3,13 @@
     flex-direction: column;
     width: 80%;
     margin: 0 auto;
-    height: 10rem;
+    height: 14rem;
     align-items: center;
 }
 
 .AddCommentDiv {
     margin: 20px;
-    height: 10rem;
+    height: 15rem;
 }
 
 textarea {
@@ -27,17 +27,18 @@ textarea {
 
 .SubmitForm {
     width: 40%;
-    height: 2rem;
+    height: 3rem;
     border-radius: 20px;
     font-size: 20px;
     background: gold;
     color: maroon;
     border: 2px black solid;
-    box-shadow: 4px 4px 2px black
+    box-shadow: 4px 4px 2px black;
+    margin-top: 11px;
 }
 
 .SubmitForm:hover {
-    color: red;
+    color: rgb(255, 153, 0);
     cursor: pointer;
 }
 
@@ -48,4 +49,8 @@ textarea {
 .SubmitForm:active {
     transform: translateY(3px);
     box-shadow: 1px 1px 2px black
+}
+
+button.AddComment {
+    margin-bottom: 15px;
 }

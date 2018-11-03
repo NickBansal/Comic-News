@@ -47,9 +47,11 @@ class Home extends Component {
                         { this.props.switch &&
                             <Router>
                                 <HomePage path="/" />
-                                <AllArticles path="/articles"/>
+                                <AllArticles 
+                                user={this.state.user}
+                                path="/articles"/>
                                 <TopicArticles 
-                                userName={this.state.user.username}
+                                username={this.state.user.username}
                                 articles={this.state.articles}
                                 path="/topic/:topic/articles"/> 
                                 <SingleArticle

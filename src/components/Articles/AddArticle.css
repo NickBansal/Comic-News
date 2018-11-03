@@ -10,10 +10,10 @@
 }
 
 .AddTitle {
-    height: 2rem;
+    height: 3rem;
     border-radius: 8px;
     margin: 5px;
-    font-size: 20px;
+    font-size: 30px;
     border: 2px solid black;
     padding: 0 15px;
     font-family: 'Patrick Hand', cursive;
@@ -21,16 +21,18 @@
 }
 
 .AddBody {
-    height: 6rem;
+    height: 9rem;
     border-radius: 10px;
     margin: 5px;
     border: 2px solid black;
     font-family: 'Patrick Hand', cursive;
-    font-size: 20px;
-    padding: 0 15px;
+    font-size: 30px;
+    padding: 10px 15px;
     display: flex;
     align-items: flex-start;
     outline: none;
+    margin-bottom: 10px;
+    width: 91%;
 }
 
 .SelectSubmit {
@@ -78,4 +80,12 @@
     background: #eef4c4;
     cursor: pointer;
     transform: scale(1.2)
+}
+
+.SelectSubmit input:focus {
+    outline: none;
+}
+
+.SelectSubmit input:active {
+    transform: scale(1);
 }

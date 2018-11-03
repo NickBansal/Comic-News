@@ -2,32 +2,56 @@ import React, { Component } from 'react';
 import './AllArticles.css'
 import * as api from '../../api'
 import { Link } from "@reach/router"
+import Loading from '../Loading/Loading';
+import AddArticle from './AddArticle'
 
 class AllArticles extends Component {
 
     state = {
         articles: [],
         loading: true,
-        columnReverse: false
+        columnReverse: false,
+        addArticle: false
     }
 
     render () {
+
         const style = (!this.state.columnReverse) ? {flexDirection: 'column'} : {flexDirection: 'column-reverse'}
 
-        if (this.state.loading) return (
-            <div>
-                <h1>Loading</h1>
-            </div>
-        )
+        if (this.state.loading) return <Loading />
         else return (
             <div>
                 <div className="AllArticlesSelection">
+                    <div
+                    onClick={this.showAddArticle} 
+                    className="AddNewArticle">
+                    </div>
                     <ul>
-                        <li onClick={this.SortByVotes}>Votes</li>
-                        <li onClick={this.SortByCreated}>Created</li>
-                        <li onClick={this.SortByComments}>Comments</li>
+                        <div className="SortItems">
+                            <li onClick={this.SortByVotes}></li>
+                            <h2>Votes</h2>
+                        </div>
+                        <div className="SortItems">
+                            <li onClick={this.SortByCreated}></li>
+                            <h2>Created</h2>
+                        </div>
+                        <div className="SortItems">
+                            <li onClick={this.SortByComments}></li>
+                            <h2>Comments</h2>
+                        </div>
                     </ul>
                 </div>
+                {
+                    this.state.addArticle && !this.props.user.username && 
+                    <div className="LoginWarning">
+                        <h2>In order to add an article, please login <Link to="/login" className="Here">HERE</Link>...</h2>
+                    </div>
+                    
+                }
+                {this.state.addArticle && this.props.user.username &&
+                <AddArticle 
+                user={this.props.user}
+                addNewArticle={this.addNewArticle}/> }
                 <div style={style} className="AllArticles">
                     {this.state.articles.map(article => {
                     return (
@@ -75,6 +99,20 @@ class AllArticles extends Component {
         this.setState({
             articles: newArticles,
             columnReverse: !this.state.columnReverse
+        })
+    }
+
+    showAddArticle = () => {
+        this.setState({
+            addArticle: !this.state.addArticle
+        })
+    }
+
+    addNewArticle = (article) => {
+        const newArticle = [article, ...this.state.articles]
+        this.setState({
+            articles: newArticle,
+            addArticle: false
         })
     }
 

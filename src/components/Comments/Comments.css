@@ -84,3 +84,7 @@
 .AddComment:focus {
     outline: none;
 }
+
+.CommentWarning {
+    font-size: 30px;
+}

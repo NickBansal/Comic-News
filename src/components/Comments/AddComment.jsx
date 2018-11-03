@@ -1,12 +1,11 @@
 import React, { Component } from 'react';
 import "./AddComment.css";
 import * as api from '../../api';
-import { navigate } from "@reach/router"
 
 class AddComment extends Component {
 
     state = {
-
+        error: false
     }
 
     render() {
@@ -21,11 +20,13 @@ class AddComment extends Component {
                 className="AddBody"
                 name="body" 
                 onChange={(event) => this.handleChange(event.target)}></textarea>
+                
                 <input 
                 
                 type="submit" 
                 className="SubmitForm"/>
                 </form>
+                {this.state.error && <h2>*** All fields MUST be completed ***</h2>}
             </div>
         )
     }
@@ -36,17 +37,21 @@ class AddComment extends Component {
         });
     };
 
-   
-
-
     handleSubmit = (event) => {
         event.preventDefault();
-        
         api.addNewComment(this.state, this.props.user._id, this.props.articleId)
-        .then(() => {
-            navigate(`articles/${this.props.articleId}/comments`)
+        .then(comment => {
+            console.log(comment)
+            this.props.addNewComment(comment)
+            this.setState({
+                error: false
+            })
         })
-        .catch(err => console.log(err))
+        .catch(err => {
+            this.setState({
+                error: true
+            })
+        })
 	};
 }
 
