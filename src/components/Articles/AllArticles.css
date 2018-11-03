@@ -1,7 +1,4 @@
 .AllArticles {
-    border: 8px solid black;
-    width: 80%;
-    margin: 20px auto;
     display: flex;
 }
 
@@ -9,8 +6,10 @@
     list-style: none;
     display: flex;
     justify-content: space-around;
-    padding: 0;
-    border-radius: 30px;
+    border-bottom: 5px solid black;
+    margin: 0;
+    padding: 20px;
+    background: grey;
 }
 
 .AllArticlesSelection ul li {

@@ -7,7 +7,7 @@ import Login from '../Login/Login'
 import { Router, Link } from '@reach/router'
 import * as api from '../../api'
 import './Home.css'
-// import NotFound from '../Notfound'
+import NotFound from '../Notfound'
 
 class Home extends Component {
 
@@ -60,13 +60,14 @@ class Home extends Component {
                                 setUser={this.setUser}
                                 user={this.state.user}
                                 path="/login"/>
+                                <NotFound default/>
                             </Router>
                         }
 
                         </div>
                         <div className="television__channels-wrapper">
                             <ul className="television__channels">
-                                <Link onClick={this.changeLogin} to="/login"><li className="television__channel votes"></li></Link>
+                                <Link onClick={this.changeLogin} to="/login"><li className="television__channel votes"><h2 className="Short" >User</h2></li></Link>
                                 <h2 className="Long" >UserPage</h2>
                             </ul>
                         </div>

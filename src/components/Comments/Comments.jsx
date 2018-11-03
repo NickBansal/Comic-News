@@ -54,8 +54,9 @@ class Comments extends Component {
                                     <div key={index} className="CommentsPara">
                                         <p>{body}
                                         </p>
-                                        { this.props.userName === created_by.username && 
+                                        { this.props.user.username === created_by.username && 
                                             <DeleteComment 
+                                            deletedComment={this.deletedComment}
                                             articleId={this.props.articleId}
                                             id={_id}/> }
                                         <div className="CommentData">
@@ -78,8 +79,16 @@ class Comments extends Component {
             )
     }
 
-    changeAddComment = () => {
+    deletedComment = (id) => {
+        api.deleteComment(id)
+        const newArray = this.state.comments.filter(comment => comment._id !== id)
+        console.log(newArray)
+        this.setState({
+            comments: newArray
+        })
+    }
 
+    changeAddComment = () => {
         this.setState({
             commentAdd: !this.state.commentAdd
         })

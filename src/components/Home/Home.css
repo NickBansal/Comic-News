@@ -75,6 +75,11 @@ television {
   margin: 0
 }
 
+.television__channels h2.Short {
+  margin: 0;
+  font-size: 0;
+}
+
 .switch {
   width: 100px;
   height: 80px;
@@ -87,7 +92,7 @@ television {
   height: 100%;
   width: 100%;
   border-radius: 28px;
-  font-size: 35px;
+  font-size: 45px;
   text-align: center;
   background: rgb(235, 199, 39);
   border: 5px solid red;
@@ -223,13 +228,28 @@ television {
   }
 
   li.television__channel.votes {
-    border: 7px solid red;
+    border: 5px solid red;
+    width: 105px;
+    height: 66px;
+    border-radius: 28px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
   }
 
-  .television__channels h2 {
+  li.television__channel.votes:hover {
+    background: rgb(238, 210, 84);
+  }
+
+  .television__channels h2.Short {
     margin: 0;
-    font-size: 32px;
-    color: #efd6b7
+    font-size: 40px;
+    color: black;
+  }
+
+  .television__channels h2.Long {
+    margin: 0;
+    font-size: 0;
   }
 
   .switch {
