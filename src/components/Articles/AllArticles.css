@@ -1,0 +1,36 @@
+.AllArticles {
+    border: 8px solid black;
+    width: 80%;
+    margin: 20px auto;
+    display: flex;
+}
+
+.AllArticlesSelection ul {
+    list-style: none;
+    display: flex;
+    justify-content: space-around;
+    padding: 0;
+    border-radius: 30px;
+}
+
+.AllArticlesSelection ul li {
+    border: 2px solid black;
+    width: 80px;
+    height: 80px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50px;
+    font-size: 110%;
+    background: gold;   
+}
+
+.AllArticlesSelection ul li:hover {
+    background: yellow;
+    cursor: pointer; 
+}
+
+.AllArticlesSelection ul li:active {
+    background: gold;
+    box-shadow: inset 5px 5px 5px black;
+}

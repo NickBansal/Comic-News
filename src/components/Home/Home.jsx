@@ -14,8 +14,7 @@ class Home extends Component {
     state = {
         articles: [],
         loading: true,
-        user: {},
-        login: false
+        user: {}
     }
 
     render () {
@@ -45,56 +44,30 @@ class Home extends Component {
                     <div className="television__center">
                         <div style={ this.props.switch ? teleOn : null } className="television__screen">
                         
-                        { this.props.switch && !this.state.login && this.state.articles.length < 1 && 
+                        { this.props.switch &&
                             <Router>
                                 <HomePage path="/" />
                                 <AllArticles path="/articles"/>
-                            </Router>
-                        }
-
-                        { this.props.switch && this.state.login &&
-                        <div>
-                            <Router>
+                                <TopicArticles 
+                                userName={this.state.user.username}
+                                articles={this.state.articles}
+                                path="/topic/:topic/articles"/> 
+                                <SingleArticle
+                                user={this.state.user}
+                                path="/articles/:article_id/*" />
                                 <Login 
                                 logOut={this.logOut}
-                                changeArticles={this.state.articles}
-                                changeTopic={this.props.changeTopic}
                                 setUser={this.setUser}
                                 user={this.state.user}
                                 path="/login"/>
                             </Router>
-                        </div> 
                         }
-
-
-                        { this.props.switch && this.state.articles.length > 0 && 
-                        
-                        <Router>
-
-                            <TopicArticles 
-                            userName={this.state.user.username}
-                            articles={this.state.articles}
-                            path="/topic/:topic/articles"/> 
-
-                            <SingleArticle
-                            user={this.state.user}
-                            path="/articles/:article_id/*" />
-
-                            {/* <NotFound default/> */}
-
-                        </Router> }
 
                         </div>
                         <div className="television__channels-wrapper">
                             <ul className="television__channels">
                                 <Link onClick={this.changeLogin} to="/login"><li className="television__channel votes"></li></Link>
-                                <h2>UserPage</h2>
-                                <li 
-                                onClick={() => console.log('HELLO')}
-                                className="television__channel created"></li>
-                                <h2>Votes</h2>
-                                <li className="television__channel comments"></li>
-                                <h2>Created</h2>
+                                <h2 className="Long" >UserPage</h2>
                             </ul>
                         </div>
                         <div className="switch">

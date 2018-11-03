@@ -24,3 +24,9 @@
     transform: translateY(8px) translateX(8px);
     box-shadow: 2px 2px 2px black
 }
+
+@media (max-width: 810px) {
+    .HomePage h1 {
+        font-size: 180%;
+    }
+}

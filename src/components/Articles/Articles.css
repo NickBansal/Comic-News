@@ -43,12 +43,12 @@ p {
 
 .SingleArticleTitle {
     background: maroon;
-    height: 7rem;
     display: flex;
     justify-content: center;
     align-items: center;
     font-size: 40px;
-    color: rgb(255, 230, 0)
+    color: rgb(255, 230, 0);
+    padding: 20px
 }
 
 
@@ -132,4 +132,8 @@ p {
 
 .add {
     background: rgb(4, 255, 4)
+}
+
+@media (max-width: 810px) {
+
 }

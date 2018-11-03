@@ -92,3 +92,30 @@ input.LoginInput:focus {
     /* flex-direction: column;
     align-items: center; */
 }
+
+@media (max-width: 810px) {
+    .LoggedIn {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        border: 10px solid black;
+        border-radius: 40px;
+        width: 80%;
+        margin: 3% auto 5px;
+        background: gold;
+        height: 240px;
+        padding: 15px;
+    }
+
+    .LoggedIn img {
+        border-radius: 30px;
+        height: 60%;
+        width: 150px;
+        border: 5px solid black
+    }
+
+    .LoggedInData h1 {
+        padding: 0;
+    }
+}
