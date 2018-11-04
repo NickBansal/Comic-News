@@ -127,8 +127,8 @@ class Home extends Component {
                 })
             })
         }
-        if (prevState.user.username !== this.state.user.username) {
-            this.state.user.username ?
+        if (prevState.user !== this.state.user) {
+            this.state.user ?
             localStorage.setItem('user', JSON.stringify(this.state.user)) :
             localStorage.removeItem('user')
         } 

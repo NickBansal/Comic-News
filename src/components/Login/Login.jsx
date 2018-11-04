@@ -10,14 +10,12 @@ class Login extends Component {
         username: 'tickle122',
         error: false,
         loading: false,
-        articles: [],
         articlesShow: false,
-        comments: [],
         commentsShow: false
     }
 
     render() {
-        if (!this.props.user.username) {
+        if (!this.props.user.user) {
             return (
                 <div>
                     <h1>Please login...</h1>
@@ -40,12 +38,16 @@ class Login extends Component {
                 <div className="FullLogIn">
                     <div className="LoggedIn">
                         <img 
-                        src={ this.props.user.avatar_url } 
-                        alt={ this.props.user.username }/>
+                        src={ this.props.user.user.avatar_url } 
+                        alt={ this.props.user.user.username }/>
                         <div className="LoggedInData">
-                            <h1>Hello { this.props.user.name }</h1>
-                            <h1>You are logged in as { this.props.user.username }</h1>
+                            <h1>Hello { this.props.user.user.name }</h1>
+                            <h1>You are logged in as { this.props.user.user.username }</h1>
                         </div>
+                    </div>
+                    <div className="Userstats">
+                        <h2>Articles: {this.props.user.articles.length}</h2>
+                        <h2>Comments: {this.props.user.comments.length}</h2>
                     </div>
                     <div>
                         <button 
@@ -55,16 +57,16 @@ class Login extends Component {
                         }}
                         className="InputButton">LogOut</button>
                         <button 
-                        onClick={() => this.getArticles(this.props.user.username)}
+                        onClick={this.getArticles}
                         className="InputButton">Articles</button>
                         <button 
-                        onClick={() => this.getComments(this.props.user.username)}
+                        onClick={this.getComments}
                         className="InputButton">Comments</button>
                     </div>
                     {this.state.articlesShow && 
-                    <UserArticles articles={this.state.articles}/>}
+                    <UserArticles articles={this.props.user.articles}/>}
                     {this.state.commentsShow && 
-                    <UserComments comments={this.state.comments}/>}
+                    <UserComments comments={this.props.user.comments}/>}
                 </div>
             )
         }
@@ -73,15 +75,6 @@ class Login extends Component {
     handleChange = username => {
         this.setState({
             username
-        })
-    }
-
-    changeStateLogOut = () => {
-        this.setState({
-            articlesShow: false,
-            commentsShow: false,
-            comments: [],
-            articles: []
         })
     }
 
@@ -102,36 +95,24 @@ class Login extends Component {
         })
     }
 
-    getArticles = username => {
-        this.state.articles.length < 1 ? 
-        api.getArticlesByUser(username)
-        .then(articles => {
-            this.setState({
-                articles,
-                articlesShow: true,
-                commentsShow: false
-            })
-        }) :
+    getArticles = () => {
         this.setState({
-            articlesShow: !this.state.articlesShow,
+            articlesShow: true,
             commentsShow: false
         })
     }
 
-    getComments = username => {
-        this.state.comments.length < 1 ?
-        api.getCommentsByUser(username)
-        .then(comments => {
-            console.log(comments)
-            this.setState({
-                comments,
-                articlesShow: false,
-                commentsShow: !this.state.commentsShow
-            })
-        }) : 
+    getComments = () => {
         this.setState({
             articlesShow: false,
-            commentsShow: !this.state.commentsShow
+            commentsShow: true
+        })
+    }
+
+    changeStateLogOut = () => {
+        this.setState({
+            articlesShow: false,
+            commentsShow: false,
         })
     }
 }

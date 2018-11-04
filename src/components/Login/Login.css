@@ -28,6 +28,12 @@ input.LoginInput:focus {
     margin: 10px;
 }
 
+.Userstats {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly
+}
+
 .InputButton {
     height: 50px;
     width: 150px;
@@ -38,7 +44,7 @@ input.LoginInput:focus {
     font-family: 'Patrick Hand', cursive;
     border: 2px black solid;
     box-shadow: 5px 5px 5px black;
-    margin: 15px 10px 30px 10px
+    margin: 15px 10px 30px 10px    
 }
 
 .InputButton:hover, .AddButton:hover  {

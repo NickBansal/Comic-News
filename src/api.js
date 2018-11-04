@@ -47,14 +47,3 @@ export const addNewComment = async (article, id, articleId) => {
     const { data } = await axios.post(`${DB_URL}/articles/${articleId}/comments`, { body, created_by: id })
     return data
 }
-
-export const getArticlesByUser = async username => {
-    const { data } = await axios.get(`${DB_URL}/users/${username}/articles`)
-    return data
-} 
-
-export const getCommentsByUser = async username => {
-    console.log(username, " <<<<< Comments by user")
-    const { data } = await axios.get(`${DB_URL}/users/${username}/comments`)
-    return data
-} 
