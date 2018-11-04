@@ -14,7 +14,7 @@ class Home extends Component {
     state = {
         articles: [],
         loading: true,
-        user: {}
+        user: {},
     }
 
     render () {
@@ -112,7 +112,10 @@ class Home extends Component {
                 user: JSON.parse(userVariable)
             })
         }
-        
+    }
+
+    changeArticleId = () => {
+
     }
 
     componentDidUpdate(prevProps, prevState) {

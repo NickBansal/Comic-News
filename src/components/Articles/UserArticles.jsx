@@ -7,10 +7,10 @@ const UserArticles = ({ articles }) => {
         <div className="FullUserArticles">
             {articles.map(article => {
                 return (
-                    <div className="SingleUserArticleDiv" key={article._id}>
-                        <Link to={`/articles/${article._id}`}><h2 className="SingleUserArticle" >{article.title}</h2></Link>
-                        <h3 className="SingleUserArticle" >Created: {article.created_at.split('T')[0]}</h3>
-                    </div>
+                <div className="SingleUserArticleDiv" key={article._id}>
+                    <Link to={`/articles/${article._id}`}><h2 className="SingleUserArticle" >{article.title}</h2></Link>
+                    <h3 className="SingleUserArticle" >Created: {article.created_at.split('T')[0]}</h3>
+                </div>
                 )
             })}
         </div>
@@ -18,3 +18,4 @@ const UserArticles = ({ articles }) => {
 }
 
 export default UserArticles
+

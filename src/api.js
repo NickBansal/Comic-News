@@ -32,7 +32,6 @@ export const getUserByUsername = async (username) => {
 }
 
 export const addNewArticle = async (article, id) => {
-    console.log(article, id)
     const created_by = id
     const { title, body, topic } = article
     const { data } = await axios.post(`${DB_URL}/topics/${topic}/articles`, { title, body, created_by })
@@ -50,7 +49,6 @@ export const addNewComment = async (article, id, articleId) => {
 }
 
 export const getArticlesByUser = async username => {
-    console.log(username, " <<<<< Articles by user")
     const { data } = await axios.get(`${DB_URL}/users/${username}/articles`)
     return data
 } 

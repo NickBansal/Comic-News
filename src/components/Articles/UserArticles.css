@@ -8,7 +8,7 @@ h3.SingleUserArticle {
 }
 
 .SingleUserArticleDiv:hover {
-    background: lightblue;
+    background: orange;
     cursor: pointer;
     transform: scale(1.1)
 }

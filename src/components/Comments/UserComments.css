@@ -1,0 +1,18 @@
+.FullComments {
+    width: 80%;
+    margin: 10px auto;
+}
+
+.Comment p {
+    margin: 0;
+    background: orange;
+}
+
+.BelongsTo h2 {
+    margin: 0;
+    background: gold;
+}
+
+.EachComment {
+    margin-bottom: 10px;
+}

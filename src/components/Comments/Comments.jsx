@@ -56,26 +56,26 @@ class Comments extends Component {
                         articleId={this.props.articleId}/>}
                         <div>
                             {this.state.comments.map((comment, index) => {
-                                const { body, created_at, votes, created_by, _id } = comment
+                                // const { body, created_at, votes, created_by, _id } = comment
                                 return (
                                     <div key={index} className="CommentsPara">
-                                        <p>{body}
+                                        <p>{comment.body}
                                        
-                                        { this.props.user.username === created_by.username && 
+                                        { this.props.user.username === comment.created_by.username && 
                                             <DeleteComment 
                                             deletedComment={this.deletedComment}
                                             articleId={this.props.articleId}
-                                            id={_id}/> }
+                                            id={comment._id}/> }
                                              </p>
                                         <div className="CommentData">
                                             <div className="UserProfile">
-                                                <img src={ created_by.avatar_url } alt="Avatar"/>
+                                                <img src={ comment.created_by.avatar_url } alt="Avatar"/>
                                                 <div className="UserProfileData">
-                                                    <h3>{ created_by.username }</h3>
-                                                    <h3>{created_at.split('T')[0]}</h3>
+                                                    <h3>{ comment.created_by.username }</h3>
+                                                    <h3>{ comment.created_at.split('T')[0]}</h3>
                                                 </div>
                                             </div>
-                                            <h2>Votes: { votes }</h2>
+                                            <h2>Votes: { comment.votes }</h2>
                                         </div>
                                     </div>
                                 )

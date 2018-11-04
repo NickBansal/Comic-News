@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
 import * as api from '../../api'
 import './Login.css'
-import UserArticles from '../Articles/UserArticles'
+import UserArticles from '../Articles/UserArticles';
+import UserComments from '../Comments/UserComments'
 
 class Login extends Component {
 
@@ -57,10 +58,13 @@ class Login extends Component {
                         onClick={() => this.getArticles(this.props.user.username)}
                         className="InputButton">Articles</button>
                         <button 
+                        onClick={() => this.getComments(this.props.user.username)}
                         className="InputButton">Comments</button>
                     </div>
                     {this.state.articlesShow && 
                     <UserArticles articles={this.state.articles}/>}
+                    {this.state.commentsShow && 
+                    <UserComments comments={this.state.comments}/>}
                 </div>
             )
         }
@@ -75,7 +79,9 @@ class Login extends Component {
     changeStateLogOut = () => {
         this.setState({
             articlesShow: false,
-            commentsShow: false
+            commentsShow: false,
+            comments: [],
+            articles: []
         })
     }
 
@@ -97,13 +103,35 @@ class Login extends Component {
     }
 
     getArticles = username => {
+        this.state.articles.length < 1 ? 
         api.getArticlesByUser(username)
         .then(articles => {
             this.setState({
                 articles,
-                articlesShow: !this.state.articlesShow,
+                articlesShow: true,
                 commentsShow: false
             })
+        }) :
+        this.setState({
+            articlesShow: !this.state.articlesShow,
+            commentsShow: false
+        })
+    }
+
+    getComments = username => {
+        this.state.comments.length < 1 ?
+        api.getCommentsByUser(username)
+        .then(comments => {
+            console.log(comments)
+            this.setState({
+                comments,
+                articlesShow: false,
+                commentsShow: !this.state.commentsShow
+            })
+        }) : 
+        this.setState({
+            articlesShow: false,
+            commentsShow: !this.state.commentsShow
         })
     }
 }
