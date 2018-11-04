@@ -1,15 +1,19 @@
 import React, { Component } from 'react';
 import * as api from '../../api'
 import './Login.css'
+import UserArticles from '../Articles/UserArticles'
 
 class Login extends Component {
 
     state = {
         username: 'tickle122',
-        // error: false,
+        error: false,
+        loading: false,
+        articles: [],
+        articlesShow: false,
+        comments: [],
+        commentsShow: false
     }
-
-    
 
     render() {
         if (!this.props.user.username) {
@@ -27,6 +31,7 @@ class Login extends Component {
                         />
                         <button className="InputButton">Login</button>
                     </form>
+                    {this.state.error && <h2>Username doesn't exist, please try another username</h2>}
                 </div>
             )
         } else {
@@ -41,9 +46,21 @@ class Login extends Component {
                             <h1>You are logged in as { this.props.user.username }</h1>
                         </div>
                     </div>
-                    <button 
-                    onClick={this.props.logOut}
-                    className="InputButton">LogOut</button>
+                    <div>
+                        <button 
+                        onClick={() => {
+                            this.props.logOut()
+                            this.changeStateLogOut()
+                        }}
+                        className="InputButton">LogOut</button>
+                        <button 
+                        onClick={() => this.getArticles(this.props.user.username)}
+                        className="InputButton">Articles</button>
+                        <button 
+                        className="InputButton">Comments</button>
+                    </div>
+                    {this.state.articlesShow && 
+                    <UserArticles articles={this.state.articles}/>}
                 </div>
             )
         }
@@ -55,11 +72,38 @@ class Login extends Component {
         })
     }
 
+    changeStateLogOut = () => {
+        this.setState({
+            articlesShow: false,
+            commentsShow: false
+        })
+    }
+
     handleSubmit = event => {
+        const user = this.state.username
         event.preventDefault();
-        api.getUserByUsername(this.state.username)
+        api.getUserByUsername(user)
         .then(user => {
             this.props.setUser(user)
+            this.setState({
+                error: false,
+            })
+        })
+        .catch(error => {
+            this.setState({
+                error: true
+            })
+        })
+    }
+
+    getArticles = username => {
+        api.getArticlesByUser(username)
+        .then(articles => {
+            this.setState({
+                articles,
+                articlesShow: !this.state.articlesShow,
+                commentsShow: false
+            })
         })
     }
 }

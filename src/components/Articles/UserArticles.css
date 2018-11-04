@@ -1,0 +1,14 @@
+h2.SingleUserArticle {
+    margin: 0;
+}
+
+h3.SingleUserArticle {
+    margin-top: 0;
+    margin-bottom: 15px;
+}
+
+.SingleUserArticleDiv:hover {
+    background: lightblue;
+    cursor: pointer;
+    transform: scale(1.1)
+}

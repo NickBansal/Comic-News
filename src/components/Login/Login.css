@@ -38,7 +38,7 @@ input.LoginInput:focus {
     font-family: 'Patrick Hand', cursive;
     border: 2px black solid;
     box-shadow: 5px 5px 5px black;
-    margin: 10px;
+    margin: 15px 10px 30px 10px
 }
 
 .InputButton:hover, .AddButton:hover  {

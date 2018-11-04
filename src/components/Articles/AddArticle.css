@@ -1,5 +1,8 @@
 .AddArticle {
-    display: absolute
+    /* position: absolute; */
+    width: 100%;
+    margin: 0 auto;
+    /* position: fixed; */
 }
 
 .AddArticleForm {
@@ -7,6 +10,7 @@
     flex-direction: column;
     width: 80%;
     margin: 10px auto;
+    align-items: center;
 }
 
 .AddTitle {
@@ -18,6 +22,7 @@
     padding: 0 15px;
     font-family: 'Patrick Hand', cursive;
     outline: none;
+    width: 93%
 }
 
 .AddBody {
