@@ -2,6 +2,8 @@ import React, { Component } from 'react';
 import TopicArticles from '../Articles/TopicArticles'
 import SingleArticle from '../Articles/SingleArticle'
 import AllArticles from '../Articles/AllArticles'
+import Navbar from '../Navbar/Navbar'
+import NavbarOpen from '../Navbar/NavbarOpen'
 import HomePage from './HomePage'
 import Login from '../Login/Login'
 import { Router, Link } from '@reach/router'
@@ -15,6 +17,8 @@ class Home extends Component {
         articles: [],
         loading: true,
         user: {},
+        open: false,
+        chosenTopic: ''
     }
 
     render () {
@@ -35,6 +39,16 @@ class Home extends Component {
         
         return (
             <div>
+                <Navbar 
+                user={this.state.user}
+                open={this.state.open} 
+                changeBurgerMenu={this.changeBurgerMenu}/>
+        
+                {this.state.open && 
+                <NavbarOpen 
+                topics={this.props.topics}
+                changeTopic={this.changeTopic}/>}
+
                 <div style={this.props.open ? inStyle : outStyle} className="television">
                     <div className="television__top">
                         <div className="television__antenna television__antenna--left"></div>
@@ -114,9 +128,19 @@ class Home extends Component {
         }
     }
 
-    changeArticleId = () => {
-
+    changeBurgerMenu = () => {
+        this.setState({
+          open: !this.state.open
+        })
     }
+
+    changeTopic = (event) => {
+        let chosenTopic = event.toLowerCase()
+        this.setState({
+          chosenTopic,
+          open: false
+        })
+      }
 
     componentDidUpdate(prevProps, prevState) {
 		if (prevProps.chosenTopic !== this.props.chosenTopic) {

@@ -6,7 +6,7 @@
     display: flex;
     align-items: center;
     justify-content: space-between;
-    height: 5.0rem;
+    height: 5.5rem;
 }
 
 .Navbar h1 {
@@ -74,4 +74,14 @@ a.HomeLink:active {
 
 .TopicsChoice h1 {
   margin: 0
+}
+
+.UserProfile div {
+  display: flex;
+  align-items: center;
+}
+
+.UserProfile div h1 {
+  padding: 0;
+  margin-left: 10px;
 }
