@@ -3,6 +3,7 @@ import TopicArticles from '../Articles/TopicArticles'
 import SingleArticle from '../Articles/SingleArticle'
 import AllArticles from '../Articles/AllArticles'
 import Users from '../Users/Users'
+import SingleUser from '../Users/SingleUser'
 import Navbar from '../Navbar/Navbar'
 import NavbarOpen from '../Navbar/NavbarOpen'
 import HomePage from './HomePage'
@@ -82,7 +83,8 @@ class Home extends Component {
                                 user={this.state.user}
                                 path="/login"/>
                                 <Users 
-                                path="/users" />
+                                path="/users/" />
+                                <SingleUser path="/users/:username"/>
                                 <NotFound default/>
                             </Router>
                         }
@@ -90,8 +92,8 @@ class Home extends Component {
                         </div>
                         <div className="television__channels-wrapper">
                             <ul className="television__channels">
-                                <Link onClick={this.changeLogin} to="/login"><li className="television__channel votes"><h2 className="Short" >User</h2></li></Link>
-                                <h2 className="Long" >UserPage</h2>
+                                <Link onClick={this.changeLogin} to="/login"><li className="television__channel votes"><h2 className="Short" >Login</h2></li></Link>
+                                <h2 className="Long" >Login</h2>
                             </ul>
                         </div>
                         <div className="switch">
@@ -143,7 +145,8 @@ class Home extends Component {
 
     changeBurgerMenu = () => {
         this.setState({
-          open: !this.state.open
+          open: !this.state.open,
+          fullTopics: false
         })
     }
 

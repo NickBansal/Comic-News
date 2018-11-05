@@ -68,6 +68,7 @@ class Comments extends Component {
                                             id={comment._id}/> }
                                              </p>
                                         <div className="CommentData">
+                                            <Link to={`/users/${comment.created_by.username}`}>
                                             <div className="UserProfile">
                                                 <img src={ comment.created_by.avatar_url } alt="Avatar"/>
                                                 <div className="UserProfileData">
@@ -75,6 +76,8 @@ class Comments extends Component {
                                                     <h3>{ comment.created_at.split('T')[0]}</h3>
                                                 </div>
                                             </div>
+                                            </Link>
+                                            
                                             <h2>Votes: { comment.votes }</h2>
                                         </div>
                                     </div>

@@ -7,7 +7,12 @@ const NavbarOpen = ({
     return (
         <div className="Menu">
             <ul>
-                <li onClick={showTopics}>Topics</li>
+                <Link to="/users"><li 
+                className="TopicItemsNotFull" 
+                onClick={changeBurgerMenu}>Users</li></Link>
+                <li
+                className="TopicItemsNotFull" 
+                onClick={showTopics}>Topics</li>
 
                 {fullTopics && topics.map(item => {
                     return <Link key={item._id} to={`/topic/${item.slug}/articles`}>
@@ -16,7 +21,6 @@ const NavbarOpen = ({
                     onClick={() => changeTopic(item.title)}>{item.title}</li>
                     </Link>
                 })}
-                <Link to="/users"><li onClick={changeBurgerMenu}>Users</li></Link>
             </ul>
         </div>
     )

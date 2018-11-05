@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import './Users.css'
 import * as api from '../../api'
 import Loading from '../Loading/Loading'
+import { Link } from '@reach/router'
 
 class Users extends Component {
 
@@ -9,24 +10,28 @@ class Users extends Component {
         loading: true
     }
 
+
     render() {
         return (
             <div className="FullEachUser">
-            <h1 className="FullEachUserH1">Please select a user to view their details...</h1>
+            {!this.state.loading && <h1 className="FullEachUserH1">Please select a user to view their details...</h1>}
                 { this.state.loading ? <Loading /> : 
                 this.state.users.map(user => {
                     return (
-                        <div key={user._id} className="EachUser">
-                            <div className="EachUserImage">
-                                <img src={user.avatar_url} alt="User" />
+                        <Link key={user._id} to={`/users/${user.username}`}>
+                            <div className="EachUser">
+                                <div className="EachUserImage">
+                                    <img src={user.avatar_url} alt="User" />
+                                </div>
+                                <div className="EachUserDetails">
+                                    <p>Name: {user.name}</p>
+                                    <p className="SecondP">Username: {user.username}</p>
+                                </div>
                             </div>
-                            <div className="EachUserDetails">
-                                <p>Name: {user.name}</p>
-                                <p className="SecondP">Username: {user.username}</p>
-                            </div>
-                        </div>
+                        </Link>
                     )
                 }) }
+            
             </div>
         )
     }

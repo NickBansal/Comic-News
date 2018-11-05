@@ -15,7 +15,7 @@ a {
     padding: 0; 
     margin: 0;
     background: #7a4e27;
-    border-radius: 25px;
+    /* border-radius: 25px; */
 }
 
 .Menu ul li {
@@ -26,7 +26,7 @@ a {
     padding: 5px;
     padding-bottom: 15px;
     text-align: center;
-    background: #7a4e27;
+    /* background: #7a4e27; */
     color: #eef4c4;
 }
 
@@ -36,8 +36,9 @@ a {
    cursor: pointer;
 }
 
-.TopicItemsInFull {
+li.TopicItemsInFull {
     background: maroon;
+    padding: 20px;
 }
 
 @media (max-width: 810px) {
