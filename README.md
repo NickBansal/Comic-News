@@ -14,12 +14,12 @@ This project largely showcases a lot of the skills I have learnt throughout my t
 
 ## Using NC News
 I have deployed my project on the following link using Heroku: https://evening-plains-23561.herokuapp.com/ for your viewing pleasure. Please feel free to browse the site.
-I tried to make this project as fun as possible, so I decided to go for a Comic style application built into a Television. This site will include a lot of wacky features such as an on/off button for the TV and some fun buttons
+I made this project to be as fun as possible, so I decided to go for a Comic style application built into a Television. This site will include a lot of wacky features such as an on/off button for the TV, some fun buttons and you may also find all the user images look very similar to the Simpsons characters...
 
 ## Functionality
 
 ### Logging in/Logging Out
-I have tried to implement a fully usable Reddit style website including the capability of logging in and viewing a users profile. For demonstration purposes, 'tickle122' is entered into the log in form so you can view the site when signed in. An option to log out is also available form the 'Login' page.
+I have implemented a fully usable Reddit style website including the capability of logging in and viewing a users profile. For demonstration purposes, 'tickle122' is entered into the log in form so you can view the site when signed in. An option to log out is also available form the 'Login' page.
 
 ### Home and Topic Routes
 The home page is a simple design with a link to all the articles. On loading, the demo requests a list of the articles from the API. 
