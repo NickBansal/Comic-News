@@ -1,0 +1,46 @@
+.FullEachUser {
+    display: flex;
+    flex-direction: column;
+}
+
+div.EachUser {
+    border-radius: 30px;
+    border: 5px solid black;
+    display: flex;
+    width: 80%;
+    margin: 20px auto;
+    height: 200px;
+}
+
+.SecondP {
+    margin: 0;
+}
+
+div.EachUser:hover {
+    transform: scale(1.1);
+    cursor: pointer;
+}
+
+
+.EachUserImage img {
+    height: 100%;
+    width: 200px;
+    border-top-left-radius: 30px;
+    border-bottom-left-radius: 30px;
+    border-right: 5px solid black;
+}
+
+.EachUserDetails {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
+    background: gold;
+    width: 100%;
+    border-top-right-radius: 30px;
+    border-bottom-right-radius: 30px;
+}
+
+.EachUserDetails p {
+    font-size: 30px;
+}
