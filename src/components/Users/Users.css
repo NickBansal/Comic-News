@@ -3,17 +3,17 @@
     flex-direction: column;
 }
 
+.FullEachUserH1 {
+    margin: 20px;
+}
+
 div.EachUser {
     border-radius: 30px;
     border: 5px solid black;
     display: flex;
     width: 80%;
-    margin: 20px auto;
-    height: 200px;
-}
-
-.SecondP {
-    margin: 0;
+    margin: 0 auto 25px;
+    height: 150px;
 }
 
 div.EachUser:hover {
@@ -24,7 +24,7 @@ div.EachUser:hover {
 
 .EachUserImage img {
     height: 100%;
-    width: 200px;
+    width: 150px;
     border-top-left-radius: 30px;
     border-bottom-left-radius: 30px;
     border-right: 5px solid black;
@@ -42,5 +42,6 @@ div.EachUser:hover {
 }
 
 .EachUserDetails p {
-    font-size: 30px;
+    font-size: 25px;
+    margin: 10px;
 }

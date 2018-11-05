@@ -12,6 +12,7 @@ class Users extends Component {
     render() {
         return (
             <div className="FullEachUser">
+            <h1 className="FullEachUserH1">Please select a user to view their details...</h1>
                 { this.state.loading ? <Loading /> : 
                 this.state.users.map(user => {
                     return (
