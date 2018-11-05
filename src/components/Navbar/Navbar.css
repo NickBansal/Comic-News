@@ -79,6 +79,7 @@ a.HomeLink:active {
 .UserProfile div {
   display: flex;
   align-items: center;
+  /* margin-left: -25%; */
 }
 
 .UserProfile div h1 {

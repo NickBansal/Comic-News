@@ -51,7 +51,11 @@ class AddArticle extends Component {
     
     handleSubmit = event => {
         event.preventDefault();
-        api.addNewArticle(this.state, this.props.user._id)
+        !this.state.topic ? 
+        this.setState({
+            error: true
+        }) :
+        api.addNewArticle(this.state, this.props.user.user._id)
         .then(article => {
            this.props.addNewArticle(article)
            this.setState({

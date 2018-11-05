@@ -3,8 +3,9 @@ import { Link } from '@reach/router'
 import './Articles.css'
 
 const TopicArticles = ({ articles }) => {
-    
+    console.log(articles)
     return (
+        
         <div>
             {articles.map(article => {
                 return (

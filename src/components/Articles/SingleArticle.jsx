@@ -14,7 +14,6 @@ class SingleArticle extends Component {
     }
 
     render() {   
-
         const style = {
             transform: 'scale(1.6)',
             transition: '0.5s',

@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import TopicArticles from '../Articles/TopicArticles'
 import SingleArticle from '../Articles/SingleArticle'
 import AllArticles from '../Articles/AllArticles'
+import Users from '../Users/Users'
 import Navbar from '../Navbar/Navbar'
 import NavbarOpen from '../Navbar/NavbarOpen'
 import HomePage from './HomePage'
@@ -18,7 +19,8 @@ class Home extends Component {
         loading: true,
         user: {},
         open: false,
-        chosenTopic: ''
+        chosenTopic: '',
+        fullTopics: false
     }
 
     render () {
@@ -46,10 +48,13 @@ class Home extends Component {
         
                 {this.state.open && 
                 <NavbarOpen 
+                fullTopics={this.state.fullTopics}
+                changeBurgerMenu={this.changeBurgerMenu}
+                showTopics={this.showTopics}
                 topics={this.props.topics}
                 changeTopic={this.changeTopic}/>}
 
-                <div style={this.props.open ? inStyle : outStyle} className="television">
+                <div style={this.state.open ? inStyle : outStyle} className="television">
                     <div className="television__top">
                         <div className="television__antenna television__antenna--left"></div>
                         <div className="television__antenna television__antenna--right"></div>
@@ -76,6 +81,8 @@ class Home extends Component {
                                 setUser={this.setUser}
                                 user={this.state.user}
                                 path="/login"/>
+                                <Users 
+                                path="/users" />
                                 <NotFound default/>
                             </Router>
                         }
@@ -113,6 +120,12 @@ class Home extends Component {
         })
     }
 
+    showTopics = () => {
+        this.setState({
+            fullTopics: !this.state.fullTopics
+        })
+    }
+
     logOut= () => {
         this.setState({
             user: {}
@@ -138,13 +151,14 @@ class Home extends Component {
         let chosenTopic = event.toLowerCase()
         this.setState({
           chosenTopic,
-          open: false
+          open: false,
+          fullTopics: false
         })
       }
 
     componentDidUpdate(prevProps, prevState) {
-		if (prevProps.chosenTopic !== this.props.chosenTopic) {
-            api.getArticleByTopic(this.props.chosenTopic)
+		if (prevState.chosenTopic !== this.state.chosenTopic) {
+            api.getArticleByTopic(this.state.chosenTopic)
             .then(articles => {
                 this.setState({
                     articles

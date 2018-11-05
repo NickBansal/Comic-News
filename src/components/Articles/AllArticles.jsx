@@ -42,13 +42,13 @@ class AllArticles extends Component {
                     </ul>
                 </div>
                 {
-                    this.state.addArticle && !this.props.user.username && 
+                    this.state.addArticle && !this.props.user.user && 
                     <div className="LoginWarning">
                         <h2>In order to add an article, please login <Link to="/login" className="Here">HERE</Link>...</h2>
                     </div>
                     
                 }
-                {this.state.addArticle && this.props.user.username &&
+                {this.state.addArticle && this.props.user.user &&
                 <AddArticle 
                 user={this.props.user}
                 addNewArticle={this.addNewArticle}/> }

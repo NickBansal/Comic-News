@@ -3,7 +3,6 @@ import { Link } from '@reach/router'
 import './Navbar.css'
 
 const Navbar = ({ open, changeBurgerMenu, user }) => {
-    console.log(user.user)
     return (
         <div className='Navbar'>
             <Link className="HomeLink" to="/"><h1>ComicNews</h1></Link>

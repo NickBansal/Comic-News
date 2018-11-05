@@ -39,9 +39,8 @@ class AddComment extends Component {
 
     handleSubmit = (event) => {
         event.preventDefault();
-        api.addNewComment(this.state, this.props.user._id, this.props.articleId)
+        api.addNewComment(this.state, this.props.user.user._id, this.props.articleId)
         .then(comment => {
-            console.log(comment)
             this.props.addNewComment(comment)
             this.setState({
                 error: false
