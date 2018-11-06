@@ -11,7 +11,8 @@ class AllArticles extends Component {
         articles: [],
         loading: true,
         columnReverse: false,
-        addArticle: false
+        addArticle: false,
+        message: false
     }
 
     render () {
@@ -41,6 +42,7 @@ class AllArticles extends Component {
                         </div>
                     </ul>
                 </div>
+                {this.state.message && <h2>*** New Article Added ***</h2>}
                 {
                     this.state.addArticle && !this.props.user.user && 
                     <div className="LoginWarning">
@@ -112,7 +114,8 @@ class AllArticles extends Component {
         const newArticle = [article, ...this.state.articles]
         this.setState({
             articles: newArticle,
-            addArticle: false
+            addArticle: false,
+            message: true
         })
     }
 

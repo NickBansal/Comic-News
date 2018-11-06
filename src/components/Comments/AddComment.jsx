@@ -5,7 +5,8 @@ import * as api from '../../api';
 class AddComment extends Component {
 
     state = {
-        error: false
+        error: false,
+        message: false
     }
 
     render() {
@@ -22,18 +23,19 @@ class AddComment extends Component {
                 onChange={(event) => this.handleChange(event.target)}></textarea>
                 
                 <input 
-                
                 type="submit" 
                 className="SubmitForm"/>
                 </form>
                 {this.state.error && <h2>*** All fields MUST be completed ***</h2>}
+                {this.state.message && !this.state.error && <h2>*** Comment Added ***</h2>}
             </div>
         )
     }
 
     handleChange = ({ name, value }) => {
 		this.setState({
-			[name]: value
+            [name]: value,
+            message: false
         });
     };
 
@@ -43,7 +45,8 @@ class AddComment extends Component {
         .then(comment => {
             this.props.addNewComment(comment)
             this.setState({
-                error: false
+                error: false,
+                message: true,
             })
         })
         .catch(err => {

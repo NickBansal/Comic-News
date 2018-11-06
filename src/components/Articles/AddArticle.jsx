@@ -6,7 +6,8 @@ class AddArticle extends Component {
 
     state = {
         user: {},
-        error: false
+        error: false,
+        message: false
     }
 
     render() {
@@ -38,7 +39,6 @@ class AddArticle extends Component {
                     </div>
                     {this.state.error && <h2 style={{ 'marginBottom': '0'}}>*** All fields MUST be completed ***</h2>}
                 </form>
-                n
             </div>
         )
     }
@@ -59,7 +59,8 @@ class AddArticle extends Component {
         .then(article => {
            this.props.addNewArticle(article)
            this.setState({
-            error: false
+            error: false,
+            message: true
            })
         })
         .catch(() => {
