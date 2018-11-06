@@ -4,6 +4,7 @@ import './NavbarOpen.css'
 
 const NavbarOpen = ({ 
     topics, changeTopic, showTopics, changeBurgerMenu, fullTopics }) => {
+        const arrow = !fullTopics ? <i class="fas fa-angle-down"></i> : <i class="fas fa-angle-up"></i>
     return (
         <div className="Menu">
             <ul>
@@ -12,7 +13,7 @@ const NavbarOpen = ({
                 onClick={changeBurgerMenu}>Users</li></Link>
                 <li
                 className="TopicItemsNotFull" 
-                onClick={showTopics}>Topics</li>
+                onClick={showTopics}>Topics   {arrow}</li>
 
                 {fullTopics && topics.map(item => {
                     return <Link key={item._id} to={`/topic/${item.slug}/articles`}>
