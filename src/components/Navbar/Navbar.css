@@ -86,3 +86,16 @@ a.HomeLink:active {
   padding: 0;
   margin-left: 10px;
 }
+
+.NavbarUserDetails {
+  margin: -25%;
+}
+
+@media (max-width: 810px) {
+  .NavbarUsername {
+    font-size: 0;
+  }
+  .NavbarUserDetails {
+    margin: -65px;
+  }
+}

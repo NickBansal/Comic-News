@@ -4,6 +4,7 @@ import './Comments.css'
 import DeleteComment from '../Delete/DeleteComment'
 import AddComment from './AddComment'
 import { Link } from '@reach/router'
+import SpinningLoading from '../Loading/SpinningLoading'
 
 class Comments extends Component {
 
@@ -20,7 +21,7 @@ class Comments extends Component {
             flexDirection: 'column',
             alignItems: 'center'
         }
-        if (this.state.loading) return <h1>Loading...</h1>
+        if (this.state.loading) return <SpinningLoading />
         else if (!this.state.loading && this.state.comments.length === 0) return (
             <div>
                 <h1>No Comments ere, why not add one below...</h1>
@@ -56,7 +57,7 @@ class Comments extends Component {
                         articleId={this.props.articleId}/>}
                         <div>
                             {this.state.comments.map((comment, index) => {
-                                // const { body, created_at, votes, created_by, _id } = comment
+                            
                                 return (
                                     <div key={index} className="CommentsPara">
                                         <p>{comment.body}

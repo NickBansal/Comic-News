@@ -8,9 +8,9 @@ const Navbar = ({ open, changeBurgerMenu, user }) => {
             <Link className="HomeLink" to="/"><h1>ComicNews</h1></Link>
             <div className="UserProfile">
                 { user.user && 
-                <div>
+                <div className="NavbarUserDetails">
                     <img src={user.user.avatar_url} alt="User"/>
-                    <h1>{ user.user.username }</h1> 
+                    <h1 className="NavbarUsername">{ user.user.username }</h1> 
                 </div>}
             </div>
             <div className="TopicsChoice">

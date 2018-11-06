@@ -94,3 +94,9 @@
 .SelectSubmit input:active {
     transform: scale(1);
 }
+
+@media (max-width: 810px) {
+    .SelectSubmit {
+        width: 80%
+    }
+}

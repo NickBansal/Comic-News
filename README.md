@@ -24,8 +24,11 @@ I have tried to implement a fully usable Reddit style website including the capa
 ### Home and Topic Routes
 The home page is a simple design with a link to all the articles. On loading, the demo requests a list of the articles from the API. 
 
-Topics and users are passed to the Navigation component in order to generate the menu which is located in the hamburger dropdown.
+Topics and users are passed to the Navigation component in order to generate the menu which is located in the hamburger dropdown. On the topics menu you can navigate to all the articles from a certain topic and also view them individually.
+There is also a User menu where you can view all the users information and acces each user to view all their respective articles and comments.
 
+
+### Main Article Page
 The main Articles component displays all articles and can be sorted by
 * Created
 * vote count
@@ -33,6 +36,8 @@ The main Articles component displays all articles and can be sorted by
 
 Some more features of the main articles:
 * Authorised users may vote articles up or down
+
+Each article can also be accessed by clicking on the highlighted article
 
 ### Individual Article Routes
 
@@ -57,24 +62,25 @@ Authorised users may:
 ### New Article Page
 
 This component allows an authorised user to publish a new article.
-
-If no one is logged in, you cannot access the new article form
-
+If there is no user logged in, you will not be able to access the new article form
 After submitting, the new comment appears in the list
 
 ### Errors
+
 Bad route errors result in the relevant 400/404 page.
-
 API errors result in the API error status code and message being displayed to the user.
-
 Avatar images are hosted externally and some URLs are out of date. The Avatar component includes an onError event handler that will replace missing images with a default avatar.
 
 ## Installing a Local Copy
+
 These instructions will help you to get a copy of NC News up and running on your local machine for testing purposes.
 
 ### Installing
 
-Please ensure you have Node.js installed.
+Please ensure you have Node.js installed, to check if node is installed please type the follwoing into your terminal.
+```js
+node -v
+```
 
 Duplicate or fork this repository from https://github.com/NickBansal/BE2-northcoders-news/
 
@@ -89,7 +95,7 @@ npm install
 To start the application, run this command in the CLI:
 
 ```js
-npm run start
+npm start
 ```
 
 If successful, your browser should open http://localhost:3000.

@@ -49,7 +49,7 @@ class Login extends Component {
                         <h2>Articles: {this.props.user.articles.length}</h2>
                         <h2>Comments: {this.props.user.comments.length}</h2>
                     </div>
-                    <div>
+                    <div className="UserButtons">
                         <button 
                         onClick={() => {
                             this.props.logOut()

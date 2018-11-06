@@ -28,11 +28,11 @@
     align-items: center;
     border-radius: 50px;
     font-size: 110%;
-    background: gold;   
+    background: rgb(253, 246, 144); 
+    box-shadow: inset -5px -5px gold; 
 }
 
 .AllArticlesSelection ul li:hover {
-    background: yellow;
     cursor: pointer; 
 }
 

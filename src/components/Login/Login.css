@@ -74,6 +74,7 @@ input.LoginInput:focus {
     height: 200px;
 }
 
+
 .LoggedIn img {
     border-top-left-radius: 30px;
     border-bottom-left-radius: 30px;
@@ -87,6 +88,10 @@ input.LoginInput:focus {
     justify-content: center;
     flex-direction: column;
     align-items: center
+}
+
+.LoggedInData h1 {
+    font-size: 27px;
 }
 
 .LoggedInData {
@@ -111,7 +116,7 @@ input.LoginInput:focus {
         margin: 3% auto 5px;
         background: gold;
         height: 240px;
-        padding: 15px;
+        padding: 0 15px;
     }
 
     .LoggedIn img {

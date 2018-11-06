@@ -15,7 +15,6 @@ class SingleUser extends Component {
     }
 
     render() {
-        // console.log(this.props.navigation)
         return this.state.loading ? <Loading /> :
         <div>
             <div className="FullLogIn">
@@ -25,7 +24,7 @@ class SingleUser extends Component {
                         alt={ this.state.user.user.username }/>
                         <div className="LoggedInData">
                             <h1>Hello { this.state.user.user.name }</h1>
-                            <h1>Or as you like to be called { this.state.user.user.username }</h1>
+                            <h1 className="SingleUserUsername">Or as you like to be called { this.state.user.user.username }</h1>
                         </div>
                     </div>
                     <div className="Userstats">
@@ -58,6 +57,9 @@ class SingleUser extends Component {
                 user,
                 loading: false
             })
+        })
+        .catch(error => {
+            console.log('Username does not exist')
         })
     }
 
