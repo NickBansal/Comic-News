@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Link, navigate } from '@reach/router';
+import { Link } from '@reach/router';
 import Loading from '../Loading/Loading'
 import * as api from '../../api'
 import UserArticles from '../Articles/UserArticles'
@@ -11,11 +11,21 @@ class SingleUser extends Component {
     state = {
         loading: true,
         articlesShow: false,
-        commentsShow: false
+        commentsShow: false,
+        error: false
     }
 
     render() {
-        return this.state.loading ? <Loading /> :
+        const style = { marginTop: '60px' }
+        if (this.state.loading) return <Loading /> 
+        if (this.state.error) return (
+            <div>
+                <h1 style={style}>'{this.props.username}' does not exist, please try another username</h1>
+                <Link to="/users"><button 
+                className="InputButton">{'<<'} Back</button></Link>
+            </div>
+        )
+        else return (
         <div>
             <div className="FullLogIn">
                     <div className="LoggedIn">
@@ -32,9 +42,8 @@ class SingleUser extends Component {
                         <h2>Comments: {this.state.user.comments.length}</h2>
                     </div>
                     <div>
-                        <button 
-                        onClick={() => navigate(-1)}
-                        className="InputButton">{'<<'} Back</button>
+                        <Link to="/users"><button 
+                        className="InputButton">{'<<'} Back</button></Link>
                         <button 
                         onClick={this.getArticles}
                         className="InputButton">Articles</button>
@@ -48,6 +57,7 @@ class SingleUser extends Component {
                     <UserComments comments={this.state.user.comments}/>}
                 </div>
         </div>
+        )
     }
 
     componentDidMount() {
@@ -55,11 +65,15 @@ class SingleUser extends Component {
         .then(user => {
             this.setState({
                 user,
-                loading: false
+                loading: false,
+                error: false
             })
         })
-        .catch(error => {
-            console.log('Username does not exist')
+        .catch(() => {
+            this.setState({
+                loading: false,
+                error: true
+            })
         })
     }
 

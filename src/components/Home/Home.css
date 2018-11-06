@@ -124,7 +124,7 @@ television {
 
 .television__channel {
   list-style-type: none;
-  background-color: rgb(235, 199, 39);
+  background-color: yellow;
   border: 7px solid #7f4b23;
   width: 60px;
   height: 60px;
@@ -133,11 +133,13 @@ television {
   font-size: 27px;
   float: left;
   position: relative;
+  box-shadow: inset -6px -6px gold;
 }
 
 .television__channel:hover {
   background-color: #e6a146;
   cursor: pointer;
+  box-shadow: none;
 }
 
 .television__channel:active {

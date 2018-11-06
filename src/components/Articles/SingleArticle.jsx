@@ -10,7 +10,8 @@ class SingleArticle extends Component {
     state = {
         singleArticle: {},
         loading: true,
-        commentsOff: true
+        commentsOff: true,
+        error: true,
     }
 
     render() {   
@@ -23,7 +24,14 @@ class SingleArticle extends Component {
             filter: 'grayscale(80%)'
         }
 
-        return this.state.loading ?  <Loading /> :
+        if (this.state.loading) return <Loading /> 
+        if (this.state.error) return (
+            <div>
+                <h1>This article does not exist</h1>
+                <Link to="/articles"><button className="InputButton">ARTICLES</button></Link>
+            </div>
+        )
+        else return (
         <div>
             <h1 className="SingleArticleTitle">{ this.state.singleArticle.article.title }</h1>
             <p>{ this.state.singleArticle.article.body }</p>
@@ -61,7 +69,7 @@ class SingleArticle extends Component {
                 path="comments"/>
             </Router>
         </div> 
-        
+        )
     }
 
     componentDidMount () {
@@ -69,10 +77,16 @@ class SingleArticle extends Component {
         .then(singleArticle => {
             this.setState({
                 singleArticle,
+                loading: false,
+                error: false
+            })
+        })
+        .catch(() => {
+            this.setState({
+                error: true,
                 loading: false
             })
         })
-        .catch(err => console.log(err))
     }
 
     changeCommentsTrue = () => {
