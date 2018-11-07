@@ -84,6 +84,10 @@
     margin-left: 5px
 }
 
+.AddArticleWarning {
+    font-size: 1.5rem;
+}
+
 .SelectSubmit input:hover {
     color: #7a4e27;
     background: #eef4c4;
@@ -117,5 +121,8 @@
 @media (max-width: 810px) {
     .SelectSubmit {
         width: 80%
+    }
+    .AddArticleWarning {
+        font-size: 20px;
     }
 }

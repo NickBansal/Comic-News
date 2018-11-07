@@ -37,7 +37,7 @@ class AddArticle extends Component {
                         </select>
                         <input type="submit"/>
                     </div>
-                    {this.state.error && <h2 style={{ 'marginBottom': '0'}}>*** All fields MUST be completed ***</h2>}
+                    {this.state.error && <h2 className="AddArticleWarning">*** All fields MUST be completed ***</h2>}
                 </form>
             </div>
         )

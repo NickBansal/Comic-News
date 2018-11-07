@@ -78,7 +78,6 @@ class Comments extends Component {
                                                 </div>
                                             </div>
                                             </Link>
-                                            
                                             <h2>Votes: { comment.votes }</h2>
                                         </div>
                                     </div>
