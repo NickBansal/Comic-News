@@ -91,18 +91,18 @@ p {
 }
 
 @keyframes shake {
-10%, 90% {
-    transform: translate3d(-1px, 0, 0);
-}
-20%, 80% {
-    transform: translate3d(2px, 0, 0);
-}
-30%, 50%, 70% {
-    transform: translate3d(-4px, 0, 0);
-}
-40%, 60% {
-    transform: translate3d(4px, 0, 0);
-}
+    10%, 90% {
+        transform: translate3d(-1px, 0, 0);
+    }
+    20%, 80% {
+        transform: translate3d(2px, 0, 0);
+    }
+    30%, 50%, 70% {
+        transform: translate3d(-4px, 0, 0);
+    }
+    40%, 60% {
+        transform: translate3d(4px, 0, 0);
+    }
 }
 
 .CommentButton {
@@ -112,7 +112,8 @@ p {
     font-size: 40px;
     text-align: center;
     margin: 0 10px;
-    box-shadow: 4px 4px 1px black;
+    -webkit-box-shadow: 4px 4px 1px black;
+            box-shadow: 4px 4px 1px black;
     outline: none;
     border: 1px black solid;
 }
@@ -122,8 +123,11 @@ p {
 }
 
 .CommentButton:active {
-    box-shadow: 1px 1px 1px black;
-    transform: translateY(3px)
+    -webkit-box-shadow: 1px 1px 1px black;
+            box-shadow: 1px 1px 1px black;
+    -webkit-transform: translateY(3px);
+        -ms-transform: translateY(3px);
+            transform: translateY(3px)
 }
 
 .minus {
