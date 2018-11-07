@@ -114,12 +114,12 @@ input.LoginInput:focus {
         margin: 3% auto 5px;
         background: gold;
         height: 210px;
-        padding: 10px 15px;
+        padding: 5px 15px 15px;
     }
 
     .LoggedIn img {
         border-radius: 30px;
-        height: 40%;
+        height: 50%;
         width: 120px;
         border: 5px solid black
     }
@@ -131,7 +131,7 @@ input.LoginInput:focus {
     
     .InputButton {
         width: 90px;
-        font-size: 19px;
+        font-size: 15px;
     }
     .BelongsTo h2 {
         font-size: 23px;
