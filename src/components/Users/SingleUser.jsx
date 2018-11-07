@@ -41,7 +41,7 @@ class SingleUser extends Component {
                         <h2>Articles: {this.state.user.articles.length}</h2>
                         <h2>Comments: {this.state.user.comments.length}</h2>
                     </div>
-                    <div>
+                    <div className="ButtonCollection">
                         <Link to="/users"><button 
                         className="InputButton">{'<<'} Back</button></Link>
                         <button 

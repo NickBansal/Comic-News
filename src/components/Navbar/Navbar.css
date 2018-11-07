@@ -98,4 +98,11 @@ a.HomeLink:active {
   .NavbarUserDetails {
     margin: -65px;
   }
+  .Navbar h1 {
+    padding: 0 15px;
+  }
+  .ComicNews {
+    font-size: 25px;
+    margin-right: 20px;
+  }
 }

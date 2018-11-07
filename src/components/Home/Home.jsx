@@ -11,7 +11,7 @@ import Login from '../Login/Login'
 import { Router, Link } from '@reach/router'
 import * as api from '../../api'
 import './Home.css'
-import NotFound from '../Notfound'
+import NotFound from '../NotFound/Notfound'
 
 class Home extends Component {
 

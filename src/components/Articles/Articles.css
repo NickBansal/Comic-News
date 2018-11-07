@@ -135,5 +135,10 @@ p {
 }
 
 @media (max-width: 810px) {
-
+    .SingleArticleTitle {
+        font-size: 30px;
+    }
+    .SingleArticlePara {
+        font-size: 20px;
+    }
 }

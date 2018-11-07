@@ -88,3 +88,12 @@
 .CommentWarning {
     font-size: 30px;
 }
+
+@media (max-width: 810px) {
+    .CommentsPara p {
+        font-size: 20px;
+    }
+    .UserProfile div {
+        font-size: 0;
+    }
+}

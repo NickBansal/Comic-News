@@ -40,6 +40,10 @@
     width: 91%;
 }
 
+.AddComment:hover {
+    cursor: pointer;
+}
+
 .SelectSubmit {
     display: flex;
     flex-direction: row;
@@ -93,6 +97,21 @@
 
 .SelectSubmit input:active {
     transform: scale(1);
+}
+
+.fa-thumbs-up  {
+    margin-top: 20px;
+    color: rgb(23, 156, 23)
+}
+
+.fa-thumbs-up:hover {
+    transform: scale(1.5);
+    cursor: pointer;
+}
+
+.fa-thumbs-up:active {
+    transform: scale(1.2);
+    cursor: pointer;
 }
 
 @media (max-width: 810px) {

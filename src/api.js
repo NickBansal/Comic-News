@@ -52,3 +52,13 @@ export const getAllUsers = async () => {
     const { data } = await axios.get(`${DB_URL}/users`)
     return data
 }
+
+export const updateVotes = async (id, newVotes, contentType) => {
+    const direction = newVotes === 1 ? "up" : "down";
+    const URL =
+      contentType === "article"
+        ? `${DB_URL}/articles/${id}?vote=${direction}`
+        : `${DB_URL}/comments/${id}?vote=${direction}`;
+    const { status } = await axios.patch(URL);
+    return status;
+  };

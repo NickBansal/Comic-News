@@ -117,3 +117,14 @@ a.Here:hover {
     font-size: 30px;
     margin: 0;
 }
+
+@media (max-width: 810px) {
+    .SortItems h2 {
+        font-size: 15px;
+    }
+    .Article p {
+        padding: 0 25px;
+        margin-bottom: 15px;
+        font-size: 20px;
+    }
+}

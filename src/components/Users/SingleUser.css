@@ -2,4 +2,11 @@
     h1.SingleUserUsername {
         font-size: 0;
     }
+    .LoggedIn img {
+        height: 40%;
+        width: 120px;
+    }
+    .LoggedInData h1 {
+        font-size: 22px;
+    }
 }

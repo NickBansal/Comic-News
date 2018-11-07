@@ -34,13 +34,15 @@ class SingleArticle extends Component {
         else return (
         <div>
             <h1 className="SingleArticleTitle">{ this.state.singleArticle.article.title }</h1>
-            <p>{ this.state.singleArticle.article.body }</p>
+            <p className="SingleArticlePara">{ this.state.singleArticle.article.body }</p>
             <div className="SingleArticle">
                 <h2>{ this.state.singleArticle.article.created_by.name }</h2>
                 <h2>{ this.state.singleArticle.article.created_at.split('T')[0] }</h2>
                 <h2>Votes: {this.state.singleArticle.article.votes}</h2>
             </div>
-            
+            <div>
+            <i className="fas fa-thumbs-up fa-3x"></i>
+            </div>
             <div className="ButtonLinks">
                 <Link to={`/topic/${this.state.singleArticle.article.belongs_to}/articles`}><button className="BackButton">{'<<<'}</button></Link>
                 <div>
