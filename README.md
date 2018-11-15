@@ -1,4 +1,4 @@
-# Nick Bansal - ComicNews
+# Nick Bansal - ComicNews - Front End
 ## Front End React App
 
 ComicNews is a news aggregation client demo I built in React.js during week nine of the Northcoders' Full Stack Developer Course.
