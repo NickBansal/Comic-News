@@ -48,11 +48,11 @@ class Comments extends Component {
                         onClick={this.changeAddComment}>
                         <h1><em>Add Comment</em></h1></button>
                         </div>
-                        {this.state.commentAdd && !this.props.user.user.username && 
+                        {this.state.commentAdd && !this.props.user.user && 
                         <div className="LoginWarning">
                         <h2 className="CommentWarning">In order to add a comment, please login <Link to="/login" className="Here">HERE</Link>...</h2>
                     </div>}
-                        {this.state.commentAdd && this.props.user.user.username && 
+                        {this.state.commentAdd && this.props.user.user && 
                         <AddComment 
                         addNewComment={this.addNewComment}
                         user={this.props.user}
