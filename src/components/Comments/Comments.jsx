@@ -6,6 +6,7 @@ import AddComment from './AddComment'
 import { Link } from '@reach/router'
 import SpinningLoading from '../Loading/SpinningLoading'
 import Votes from '../Votes/Votes'
+import moment from 'moment'
 
 class Comments extends Component {
 
@@ -74,7 +75,7 @@ class Comments extends Component {
                                                 <img src={ comment.created_by.avatar_url } alt="Avatar"/>
                                                 <div className="UserProfileData">
                                                     <h3>{ comment.created_by.username }</h3>
-                                                    <h3>{ comment.created_at.split('T')[0]}</h3>
+                                                    <h3>{ moment(comment.created_at).fromNow() }</h3>
                                                 </div>
                                             </div>
                                             </Link>

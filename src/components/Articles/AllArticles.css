@@ -118,6 +118,11 @@ a.Here:hover {
     margin: 0;
 }
 
+.AddedWarning {
+    margin: 0; 
+    background: yellow
+}
+
 @media (max-width: 810px) {
     .SortItems h2 {
         font-size: 15px;

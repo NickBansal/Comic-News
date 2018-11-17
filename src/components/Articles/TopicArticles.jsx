@@ -1,6 +1,7 @@
 import React from 'react'
 import { Link } from '@reach/router'
 import './Articles.css'
+import moment from 'moment'
 
 const TopicArticles = ({ articles }) => {
     console.log(articles)
@@ -17,6 +18,7 @@ const TopicArticles = ({ articles }) => {
                                 <h3>Comment Count: {article.comment_count}</h3>
                                 <h3>Votes: {article.votes}</h3>
                             </div>
+                            <h3>{ moment(article.created_at).fromNow() }</h3>
                             <hr className="ArticleHR"/>
                         </div>
                     </Link>

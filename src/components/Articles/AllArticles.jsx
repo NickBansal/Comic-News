@@ -4,6 +4,7 @@ import * as api from '../../api'
 import { Link } from "@reach/router"
 import Loading from '../Loading/Loading';
 import AddArticle from './AddArticle'
+import moment from 'moment'
 
 class AllArticles extends Component {
 
@@ -42,7 +43,7 @@ class AllArticles extends Component {
                         </div>
                     </ul>
                 </div>
-                {this.state.message && <h2>*** New Article Added ***</h2>}
+                {this.state.message && <h2 className="AddedWarning">*** New Article Added ***</h2>}
                 {
                     this.state.addArticle && !this.props.user.user && 
                     <div className="LoginWarning">
@@ -65,6 +66,7 @@ class AllArticles extends Component {
                                 <div className="articleStats">
                                     <h3>Comment Count: {article.comments}</h3>
                                     <h3>Votes: {article.votes}</h3>
+                                    <h3>Created: { moment(article.created_at).fromNow() }</h3>
                                 </div>
                                 <hr className="ArticleHR"/>
                             </div>
