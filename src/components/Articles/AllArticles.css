@@ -130,6 +130,14 @@ a.Here:hover {
     .Article p {
         padding: 0 25px;
         margin-bottom: 15px;
-        font-size: 20px;
+        font-size: 25px;
+    }
+    .articleStats {
+        display: flex;
+        flex-direction: column;
+        margin: 10px 0
+    }
+    .articleStats h3 {
+        margin: 0;
     }
 }

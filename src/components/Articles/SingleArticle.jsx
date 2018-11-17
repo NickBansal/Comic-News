@@ -49,7 +49,10 @@ class SingleArticle extends Component {
                 id={this.state.singleArticle.article._id}/>
             </div>
             <div className="ButtonLinks">
-                <Link to={`/topic/${this.state.singleArticle.article.belongs_to}/articles`}><button className="BackButton">{'<<<'}</button></Link>
+                {/* <Link to={`/topic/${this.state.singleArticle.article.belongs_to}/articles`}><button className="BackButton">{'<<<'}</button></Link> */}
+                <button 
+                onClick={() => window.history.back()}
+                className="BackButton">{'<<<'}</button>
                 <div>
 
                     <Link to={`/articles/${this.state.singleArticle.article._id}`}>

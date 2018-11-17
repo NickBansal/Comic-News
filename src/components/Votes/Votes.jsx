@@ -16,6 +16,9 @@ class Votes extends Component {
                 onClick={() => {
                     this.updateVote(this.props.id, this.state.vote, this.props.type)
                     this.props.optimisticRendering(this.state.vote)
+                    this.setState({
+                        vote: !this.state.vote
+                    })
                 }} 
                 className={`fas fa-thumbs-${arrow} fa-3x`}></i>
             </div>
@@ -23,13 +26,7 @@ class Votes extends Component {
     }
     
     updateVote = (id, votes, type) => {
-        console.log(id)
         api.updateVotes(id, votes, type)
-        .then(() => {
-            this.setState({
-                vote: !this.state.vote
-            })
-        })
     }
 }
     
