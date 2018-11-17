@@ -5,13 +5,15 @@ import DeleteComment from '../Delete/DeleteComment'
 import AddComment from './AddComment'
 import { Link } from '@reach/router'
 import SpinningLoading from '../Loading/SpinningLoading'
+import Votes from '../Votes/Votes'
 
 class Comments extends Component {
 
     state = {
         comments: [],
         loading: true,
-        commentAdd: false
+        commentAdd: false,
+        optRen: 0
     }
 
 
@@ -57,16 +59,14 @@ class Comments extends Component {
                         articleId={this.props.articleId}/>}
                         <div>
                             {this.state.comments.map((comment, index) => {
-                            
                                 return (
                                     <div key={index} className="CommentsPara">
                                         <p>{comment.body}
-                                       
-                                        { this.props.user.user.username === comment.created_by.username && 
+                                        { this.props.user.user && ( this.props.user.user.username === comment.created_by.username && 
                                             <DeleteComment 
                                             deletedComment={this.deletedComment}
                                             articleId={this.props.articleId}
-                                            id={comment._id}/> }
+                                        id={comment._id}/> )}
                                              </p>
                                         <div className="CommentData">
                                             <Link to={`/users/${comment.created_by.username}`}>
@@ -78,6 +78,10 @@ class Comments extends Component {
                                                 </div>
                                             </div>
                                             </Link>
+                                            <Votes 
+                type={'comment'}
+                optimisticRendering={this.optimisticRendering}
+                id={comment._id}/>
                                             <h2>Votes: { comment.votes }</h2>
                                         </div>
                                     </div>
@@ -108,6 +112,13 @@ class Comments extends Component {
         this.setState({
             commentAdd: !this.state.commentAdd
         })
+    }
+
+    optimisticRendering = (votes) => {
+        const newVote = votes ? 1 : 0
+        this.setState({
+            optRen: newVote
+        }) 
     }
     
     componentDidMount () {

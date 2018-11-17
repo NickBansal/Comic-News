@@ -1,0 +1,27 @@
+.fa-thumbs-up  {
+    color: rgb(23, 156, 23)
+}
+
+.fa-thumbs-up:hover {
+    transform: scale(1.5);
+    cursor: pointer;
+}
+
+.fa-thumbs-up:active {
+    transform: scale(1.2);
+    cursor: pointer;
+}
+
+.fa-thumbs-down  {
+    color: rgb(192, 18, 18)
+}
+
+.fa-thumbs-down:hover {
+    transform: scale(1.5);
+    cursor: pointer;
+}
+
+.fa-thumbs-down:active {
+    transform: scale(1.2);
+    cursor: pointer;
+}

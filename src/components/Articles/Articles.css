@@ -35,6 +35,7 @@ p {
 .SingleArticle {
     display: flex;
     flex-direction: column;
+    margin-bottom: 20px;
 }
 
 .SingleArticle h2 {

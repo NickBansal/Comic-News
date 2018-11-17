@@ -4,6 +4,7 @@ import Comments from '../Comments/Comments'
 import * as api from '../../api'
 import Loading from '../Loading/Loading'
 import './Articles.css'
+import Votes from '../Votes/Votes'
 
 class SingleArticle extends Component {
 
@@ -12,6 +13,7 @@ class SingleArticle extends Component {
         loading: true,
         commentsOff: true,
         error: true,
+        optRen: 0
     }
 
     render() {   
@@ -38,10 +40,13 @@ class SingleArticle extends Component {
             <div className="SingleArticle">
                 <h2>{ this.state.singleArticle.article.created_by.name }</h2>
                 <h2>{ this.state.singleArticle.article.created_at.split('T')[0] }</h2>
-                <h2>Votes: {this.state.singleArticle.article.votes}</h2>
+                <h2>Votes: {this.state.singleArticle.article.votes + this.state.optRen}</h2>
             </div>
             <div>
-            <i className="fas fa-thumbs-up fa-3x"></i>
+                <Votes 
+                type={'article'}
+                optimisticRendering={this.optimisticRendering}
+                id={this.state.singleArticle.article._id}/>
             </div>
             <div className="ButtonLinks">
                 <Link to={`/topic/${this.state.singleArticle.article.belongs_to}/articles`}><button className="BackButton">{'<<<'}</button></Link>
@@ -89,6 +94,13 @@ class SingleArticle extends Component {
                 loading: false
             })
         })
+    }
+
+    optimisticRendering = (votes) => {
+        const newVote = votes ? 1 : 0
+        this.setState({
+            optRen: newVote
+        }) 
     }
 
     changeCommentsTrue = () => {

@@ -54,7 +54,7 @@ export const getAllUsers = async () => {
 }
 
 export const updateVotes = async (id, newVotes, contentType) => {
-    const direction = newVotes === 1 ? "up" : "down";
+    const direction = newVotes === true ? "up" : "down";
     const URL =
       contentType === "article"
         ? `${DB_URL}/articles/${id}?vote=${direction}`
