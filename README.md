@@ -1,4 +1,4 @@
-# Nick Bansal - ComicNews
+# Nick Bansal - ComicNews - Front End
 ## Front End React App
 
 ComicNews is a news aggregation client demo I built in React.js during week nine of the Northcoders' Full Stack Developer Course.
@@ -10,7 +10,7 @@ This project largely showcases a lot of the skills I have learnt throughout my t
 * React Routing
 * Optimistic Rendering
 * Error Handling
-* This front end application interacts with the back end RESTful API. Details of the API may be found on Github: https://github.com/NickBansal/BE2-northcoders-news/.
+* This front end application interacts with the back end RESTful API. Details of the API may be found on Github: https://github.com/NickBansal/Comic-News-Backend/.
 
 ## Using NC News
 I have deployed my project on the following link using Heroku: https://evening-plains-23561.herokuapp.com/ for your viewing pleasure. Please feel free to browse the site.
@@ -73,7 +73,7 @@ Avatar images are hosted externally and some URLs are out of date. The Avatar co
 
 ## Installing a Local Copy
 
-These instructions will help you to get a copy of NC News up and running on your local machine for testing purposes.
+These instructions will help you to get a copy of Comic News up and running on your local machine for testing purposes.
 
 ### Installing
 
@@ -82,7 +82,7 @@ Please ensure you have Node.js installed, to check if node is installed please t
 node -v
 ```
 
-Duplicate or fork this repository from https://github.com/NickBansal/BE2-northcoders-news/
+Duplicate or fork this repository from https://github.com/NickBansal/Comic-News/
 
 Inside this new directory, install the required NPM packages:
 
