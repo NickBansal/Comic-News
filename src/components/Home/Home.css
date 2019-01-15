@@ -39,6 +39,7 @@ television {
 }
 
 .television__center {
+  max-width: 1000px;
   position: relative;
   z-index: 2;
   width: 80%;
